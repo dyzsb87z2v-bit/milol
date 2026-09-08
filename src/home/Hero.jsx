@@ -153,10 +153,10 @@ export default function Hero() {
   const overlay = (
     <div ref={copy} className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center text-ivory will-change-[opacity,transform]">
       <p className="eyebrow">Handmade Persian &amp; Turkish Carpets · Berlin</p>
-      <h1 className="mt-6 max-w-5xl text-[clamp(46px,8.4vw,132px)] leading-[0.98]">Where Heritage <em className="font-light italic text-gold">Becomes</em> Art</h1>
+      <h1 className="mt-6 max-w-5xl text-[clamp(46px,8.4vw,132px)] leading-[0.98]">Where Heritage <em className="gold-text font-light italic">Becomes</em> Art</h1>
       <p className="mt-7 max-w-xl text-[15px] leading-relaxed text-ivory/75 md:text-[17px]">Exceptional handmade Persian and Turkish carpets, selected for extraordinary interiors.</p>
       <div className="mt-11 flex flex-col gap-4 sm:flex-row">
-        <button type="button" onClick={scrollToCollection} className="btn btn-solid">Explore the Collection</button>
+        <button type="button" onClick={scrollToCollection} className="btn btn-3d">Explore the Collection</button>
         <Link to="/contact?topic=home" className="btn btn-ivory">Book a Private Viewing</Link>
       </div>
     </div>

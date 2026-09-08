@@ -6,6 +6,15 @@ import { asset } from '@/lib/assets'
 import PageHero from '@/components/PageHero'
 import Reveal, { Words } from '@/components/Reveal'
 import Img from '@/components/Img'
+import { useCountUp } from '@/lib/useCountUp'
+
+function Stat({ value, label, suffix = '' }) {
+  const numeric = typeof value === 'number'
+  const [ref, v] = useCountUp(numeric ? value : 0, 2000)
+  return (
+    <div ref={ref}><p className="serif gold-text text-[clamp(30px,4.6vw,56px)]">{numeric ? v.toLocaleString('en-US') + suffix : value}</p><p className="mt-2 text-[10.5px] uppercase tracking-[0.24em] text-ivory/50">{label}</p></div>
+  )
+}
 
 const SILK = [
   { n: '01', title: 'The silkworm', text: 'Every masterpiece begins with nature.', image: { src: '/img/silk-silkworm.webp', small: '/img/silk-silkworm-sm.webp' }, alt: 'Silkworm cocoons hanging on fine threads against black' },
@@ -39,9 +48,9 @@ export default function Craftsmanship() {
       <section data-tone="dark" className="bg-black text-ivory py-24 md:py-36">
         <div className="container-site">
           <Reveal className="mx-auto grid max-w-4xl grid-cols-3 gap-6 border-y hairline-gold py-10 text-center">
-            {[['490,000', 'knots in one square metre at 50 raj'], ['8 – 14', 'months for a fine 3 × 2 m piece'], ['2', 'warps carried by every knot']].map(([a, b]) => (
-              <div key={b}><p className="serif text-[clamp(30px,4.6vw,56px)]">{a}</p><p className="mt-2 text-[10.5px] uppercase tracking-[0.24em] text-ivory/50">{b}</p></div>
-            ))}
+            <Stat value={490000} label="knots in one square metre at 50 raj" />
+            <Stat value="8 – 14" label="months for a fine 3 × 2 m piece" />
+            <Stat value={2} label="warps carried by every knot" />
           </Reveal>
           <div className="mt-24 grid gap-12 md:grid-cols-3 md:gap-8">
             {STEPS.map((s, i) => (
@@ -121,7 +130,7 @@ export default function Craftsmanship() {
             ))}
           </dl>
           <Reveal className="mt-16 flex flex-col gap-4 sm:flex-row">
-            <Link to="/collection" className="btn btn-solid-gold">Explore the Collection</Link>
+            <Link to="/collection" className="btn btn-3d">Explore the Collection</Link>
             <Link to="/about#how-we-choose" className="btn btn-ivory">How pieces are chosen</Link>
           </Reveal>
         </div>

@@ -56,9 +56,9 @@ export default function Bespoke() {
             <h2 className="mt-5 text-[clamp(36px,4.6vw,60px)]">Four conversations, one carpet.</h2>
             <p className="mt-6 text-[16px] leading-relaxed text-ivory/60">A bespoke MILAEDIA rug takes between four and nine months. Every stage is unhurried, and every decision is yours.</p>
             <dl className="mt-10 grid grid-cols-3 gap-6 border-y hairline py-6">
-              <div><dt className="eyebrow text-[10px] text-ivory/50">Lead time</dt><dd className="mt-2 text-[22px] serif">4 – 9 months</dd></div>
-              <div><dt className="eyebrow text-[10px] text-ivory/50">Commissions from</dt><dd className="mt-2 text-[22px] serif">$6,500</dd></div>
-              <div><dt className="eyebrow text-[10px] text-ivory/50">Deposit</dt><dd className="mt-2 text-[22px] serif">30 %</dd></div>
+              <div><dt className="eyebrow text-[10px] text-ivory/50">Lead time</dt><dd className="mt-2 text-[22px] serif gold-text">4 – 9 months</dd></div>
+              <div><dt className="eyebrow text-[10px] text-ivory/50">Commissions from</dt><dd className="mt-2 text-[22px] serif gold-text">$6,500</dd></div>
+              <div><dt className="eyebrow text-[10px] text-ivory/50">Deposit</dt><dd className="mt-2 text-[22px] serif gold-text">30 %</dd></div>
             </dl>
             <p className="mt-3 text-[12px] text-ivory/55">The deposit is taken on approval of the design, and releases the piece to the dye house. The balance is due before delivery.</p>
             <div className="relative mt-10 aspect-[3/4] overflow-hidden bg-charcoal">
@@ -90,7 +90,7 @@ export default function Bespoke() {
             <p className="mt-6 text-[16px] leading-relaxed text-ivory/60">MILAEDIA has no showroom to visit. Choose any piece and our team brings the private home experience to your own room: the carpet at true size, on your floor, in your own light, before anything is bought. The visit is a viewing, not a sale. Nothing is signed in your hallway.</p>
             <dl className="mt-10 grid grid-cols-2 gap-6 sm:grid-cols-4 lg:grid-cols-2">
               {[['±2 cm', 'placement accuracy'], ['60–90 min', 'typical visit'], ['Up to 6', 'pieces compared'], ['No fee', 'within Berlin']].map(([a, b]) => (
-                <div key={b}><dt className="serif text-[30px]">{a}</dt><dd className="mt-1 eyebrow text-[10px] text-ivory/55">{b}</dd></div>
+                <div key={b}><dt className="serif gold-text text-[30px]">{a}</dt><dd className="mt-1 eyebrow text-[10px] text-ivory/55">{b}</dd></div>
               ))}
             </dl>
             <div className="mt-10 zoom-parent"><Img image={{ src: '/img/intro-room.webp', small: '/img/intro-room-sm.webp' }} alt="A carpet laid in a client's sunlit living room" className="aspect-[4/3]" sizes="(min-width: 1024px) 40vw, 100vw" /></div>

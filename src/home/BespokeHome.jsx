@@ -64,7 +64,7 @@ export default function BespokeHome() {
                 <div><label htmlFor="h-city" className="label">City</label><input id="h-city" className="field" value={form.city} onChange={set('city')} placeholder="Berlin, Vienna, Zürich…" aria-invalid={Boolean(errors.city)} />{errors.city && <p className="error-text">{errors.city}</p>}</div>
                 <div><label htmlFor="h-date" className="label">Preferred date</label><input id="h-date" type="date" className="field" value={form.date} onChange={set('date')} /></div>
                 <div className="sm:col-span-2"><label htmlFor="h-notes" className="label">The room, the size, the feeling</label><textarea id="h-notes" rows={3} className="field resize-none" value={form.notes} onChange={set('notes')} placeholder="A living room of about 40 m², warm light, oak floor…" /></div>
-                <div className="sm:col-span-2 flex flex-wrap items-center gap-5"><button type="submit" className="btn btn-solid-gold">Request a Consultation</button><Link to="/bespoke" className="link-line">About bespoke</Link></div>
+                <div className="sm:col-span-2 flex flex-wrap items-center gap-5"><button type="submit" className="btn btn-3d">Request a Consultation</button><Link to="/bespoke" className="link-line">About bespoke</Link></div>
               </form>
             )}
           </div>

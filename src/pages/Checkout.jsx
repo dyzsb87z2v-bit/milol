@@ -99,7 +99,7 @@ export default function Checkout() {
               <form onSubmit={(e) => { e.preventDefault(); next() }} noValidate className="grid gap-7 sm:grid-cols-2">
                 <Field id="email" label="Email" error={errors.email}><input type="email" autoComplete="email" {...inp('email')} /></Field>
                 <Field id="phone" label="Phone" error={errors.phone}><input type="tel" autoComplete="tel" {...inp('phone')} /></Field>
-                <div className="sm:col-span-2"><button type="submit" className="btn btn-solid">Continue to Delivery</button></div>
+                <div className="sm:col-span-2"><button type="submit" className="btn btn-3d">Continue to Delivery</button></div>
               </form>
             )}
             {step === 1 && (
@@ -112,7 +112,7 @@ export default function Checkout() {
                 <Field id="postcode" label="Postal code" error={errors.postcode}><input autoComplete="postal-code" {...inp('postcode')} /></Field>
                 <div className="sm:col-span-2"><Field id="country" label="Country"><select {...inp('country')}>{['United States', 'United Kingdom', 'Germany', 'France', 'Italy', 'Switzerland', 'United Arab Emirates', 'Türkiye', 'Other'].map((c) => <option key={c}>{c}</option>)}</select></Field></div>
                 <div className="sm:col-span-2"><Field id="notes" label="Delivery notes (optional)"><textarea rows={3} {...inp('notes', { className: 'field resize-none' })} /></Field></div>
-                <div className="sm:col-span-2 flex flex-wrap gap-4"><button type="button" onClick={() => setStep(0)} className="btn btn-ivory">Back</button><button type="submit" className="btn btn-solid">Continue to Payment</button></div>
+                <div className="sm:col-span-2 flex flex-wrap gap-4"><button type="button" onClick={() => setStep(0)} className="btn btn-ivory">Back</button><button type="submit" className="btn btn-3d">Continue to Payment</button></div>
               </form>
             )}
             {step === 2 && (
@@ -122,7 +122,7 @@ export default function Checkout() {
                 <Field id="expiry" label="Expiry" error={errors.expiry}><input inputMode="numeric" autoComplete="cc-exp" placeholder="MM / YY" {...inp('expiry')} /></Field>
                 <Field id="cvc" label="Security code" error={errors.cvc}><input inputMode="numeric" autoComplete="cc-csc" placeholder="CVC" {...inp('cvc')} /></Field>
                 <p className="sm:col-span-2 text-[12px] text-ivory/55">This is a demonstration checkout. No payment is taken and card details are never stored.</p>
-                <div className="sm:col-span-2 flex flex-wrap gap-4"><button type="button" onClick={() => setStep(1)} className="btn btn-ivory">Back</button><button type="submit" className="btn btn-solid">Review Order</button></div>
+                <div className="sm:col-span-2 flex flex-wrap gap-4"><button type="button" onClick={() => setStep(1)} className="btn btn-ivory">Back</button><button type="submit" className="btn btn-3d">Review Order</button></div>
               </form>
             )}
             {step === 3 && (
@@ -132,7 +132,7 @@ export default function Checkout() {
                   <div><dt className="eyebrow text-[10px] text-ivory/50">Deliver to</dt><dd className="mt-2">{form.firstName} {form.lastName}<br />{form.address1}{form.address2 && <>, {form.address2}</>}<br />{form.city} {form.postcode}<br />{form.country}</dd><button type="button" onClick={() => setStep(1)} className="link-line mt-2 text-ivory/60">Edit</button></div>
                   <div><dt className="eyebrow text-[10px] text-ivory/50">Payment</dt><dd className="mt-2">Card ending {form.cardNumber.replace(/\s/g, '').slice(-4)}</dd><button type="button" onClick={() => setStep(2)} className="link-line mt-2 text-ivory/60">Edit</button></div>
                 </dl>
-                <button type="button" onClick={place} disabled={busy} className="btn btn-solid w-full sm:w-auto">{busy ? 'Placing your order…' : `Place Order — ${money(totals.total)}`}</button>
+                <button type="button" onClick={place} disabled={busy} className="btn btn-3d w-full sm:w-auto">{busy ? 'Placing your order…' : `Place Order — ${money(totals.total)}`}</button>
                 <p className="text-[12px] text-ivory/55">By placing an order you agree to our <Link to="/terms" className="underline underline-offset-4">Terms & Conditions</Link>.</p>
               </div>
             )}

@@ -10,6 +10,8 @@ import JournalTeaser from '@/home/JournalTeaser'
 import Testimonials from '@/home/Testimonials'
 import GalleryStrip from '@/home/GalleryStrip'
 import Newsletter from '@/home/Newsletter'
+import Hall3D from '@/home/Hall3D'
+import Marquee from '@/components/Marquee'
 
 export default function Home() {
   useSeo({
@@ -21,6 +23,8 @@ export default function Home() {
     <>
       <Hero />
       <FeaturedFamilies />
+      <Marquee />
+      <Hall3D />
       <StatementCollection />
       <ArtBeneath />
       <TextureDetail />

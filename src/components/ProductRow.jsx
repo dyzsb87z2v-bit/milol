@@ -16,8 +16,8 @@ export default function ProductRow({ title, eyebrow, products, id }) {
             <h2 id={id} className="mt-4 text-[clamp(30px,4vw,46px)]">{title}</h2>
           </div>
           <div className="hidden gap-2 md:flex">
-            <button type="button" onClick={() => scroll(-1)} className="icon-btn border hairline" aria-label="Scroll left"><ArrowLeft size={16} strokeWidth={1.25} /></button>
-            <button type="button" onClick={() => scroll(1)} className="icon-btn border hairline" aria-label="Scroll right"><ArrowRight size={16} strokeWidth={1.25} /></button>
+            <button type="button" onClick={() => scroll(-1)} className="icon-btn border-metal" aria-label="Scroll left"><ArrowLeft size={16} strokeWidth={1.25} /></button>
+            <button type="button" onClick={() => scroll(1)} className="icon-btn border-metal" aria-label="Scroll right"><ArrowRight size={16} strokeWidth={1.25} /></button>
           </div>
         </div>
         <div ref={ref} className="rail -mx-[22px] mt-10 flex gap-5 overflow-x-auto px-[22px] pb-2 md:-mx-12 md:px-12 xl:-mx-20 xl:px-20">

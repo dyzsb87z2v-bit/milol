@@ -23,6 +23,8 @@ CNAME www  dyzsb87z2v-bit.github.io
 
 ## Design direction
 
+Metallic gold throughout: a shimmering gradient on the wordmark, prices and key words; 3D metal buttons with bevel, glow and a sweeping sheen; cards that tilt in 3D under the pointer with a light that follows it; "The Hall", a draggable 3D ring of carpets over a glossy floor; animated counters; a short gold entrance curtain; a slow band of gold city names.
+
 Dark gallery palette: near-black `#0B0B0A`, warm ivory `#F4F0E8`, antique gold `#B18A4A`, deep walnut `#2B1D16`. Cormorant Garamond headlines, Manrope body. Thin gold hairlines, a faint static film grain, no rounded corners, a gold custom cursor on fine-pointer desktops. Motion is restrained: fade-up reveals, image mask wipes, staggered headline words, slow parallax, all disabled under `prefers-reduced-motion`.
 
 ## Highlights

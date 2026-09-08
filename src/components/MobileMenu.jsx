@@ -18,7 +18,7 @@ export default function MobileMenu() {
   return (
     <div className="menu-full" role="dialog" aria-modal="true" aria-label="Menu">
       <div className="container-site flex h-[var(--header-h)] items-center justify-between">
-        <span className="serif text-[22px] tracking-[0.46em] uppercase">MILAEDIA</span>
+        <span className="serif gold-text text-[22px] tracking-[0.46em] uppercase">MILAEDIA</span>
         <button type="button" onClick={closeMenu} className="icon-btn -mr-3" aria-label="Close menu" autoFocus><X size={22} strokeWidth={1} /></button>
       </div>
       <nav className="container-site flex-1 overflow-auto py-6" aria-label="Mobile">

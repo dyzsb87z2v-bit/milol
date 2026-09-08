@@ -1,6 +1,12 @@
 import { Link } from 'react-router-dom'
 import { asset } from '@/lib/assets'
 import Reveal, { Words } from '@/components/Reveal'
+import { useCountUp } from '@/lib/useCountUp'
+
+function Percent() {
+  const [ref, v] = useCountUp(100, 1600)
+  return <span ref={ref} className="gold-text">{v}%</span>
+}
 
 const STATS = [
   ['100%', 'Handcrafted', 'Every knot tied by hand. No machine touches a MILAEDIA carpet.'],
@@ -32,7 +38,7 @@ export default function ArtBeneath() {
             <dl className="mt-12 grid grid-cols-2 gap-x-8 gap-y-8">
               {STATS.map(([a, b, c], i) => (
                 <Reveal key={b} delay={160 + i * 80} className="border-t hairline-gold pt-5">
-                  <dt className="serif text-[clamp(26px,2.6vw,34px)] leading-none">{a} <span className="text-ivory/60">{b}</span></dt>
+                  <dt className="serif text-[clamp(26px,2.6vw,34px)] leading-none">{a === '100%' ? <Percent /> : <span className="gold-text">{a}</span>} <span className="text-ivory/60">{b}</span></dt>
                   <dd className="mt-2 text-[12.5px] leading-relaxed text-ivory/55">{c}</dd>
                 </Reveal>
               ))}

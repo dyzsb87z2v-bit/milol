@@ -35,7 +35,7 @@ export default function StatementCollection() {
           ))}
         </div>
         <Reveal className="mt-16 text-center">
-          <Link to="/collection" className="btn btn-gold">See the full collection</Link>
+          <Link to="/collection" className="btn btn-3d">See the full collection</Link>
         </Reveal>
       </div>
     </section>

@@ -30,13 +30,13 @@ export default function Testimonials() {
             </blockquote>
           </div>
           <div className="mt-10 flex items-center justify-center gap-6">
-            <button type="button" onClick={() => setI((i - 1 + n) % n)} className="icon-btn border hairline" aria-label="Previous testimonial"><ArrowLeft size={15} strokeWidth={1} /></button>
+            <button type="button" onClick={() => setI((i - 1 + n) % n)} className="icon-btn border-metal" aria-label="Previous testimonial"><ArrowLeft size={15} strokeWidth={1} /></button>
             <ol className="flex gap-3" aria-label="Testimonials">
               {TESTIMONIALS.map((_, k) => (
                 <li key={k}><button type="button" onClick={() => setI(k)} aria-label={`Testimonial ${k + 1}`} aria-current={k === i} className={`block h-px w-8 transition-colors duration-500 ${k === i ? 'bg-gold' : 'bg-ivory/25'}`} /></li>
               ))}
             </ol>
-            <button type="button" onClick={() => setI((i + 1) % n)} className="icon-btn border hairline" aria-label="Next testimonial"><ArrowRight size={15} strokeWidth={1} /></button>
+            <button type="button" onClick={() => setI((i + 1) % n)} className="icon-btn border-metal" aria-label="Next testimonial"><ArrowRight size={15} strokeWidth={1} /></button>
           </div>
         </Reveal>
       </div>

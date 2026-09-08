@@ -51,7 +51,7 @@ export default function Cart() {
                     <div className="flex justify-between border-t hairline pt-4 text-[17px]"><dt>Total</dt><dd className="tabular-nums">{money(totals.total)}</dd></div>
                   </dl>
                   <p className="mt-4 text-[12px] text-ivory/55">{totals.subtotal >= FREE_SHIPPING_THRESHOLD ? 'White-glove delivery is included.' : `Complimentary white-glove delivery on orders over ${money(FREE_SHIPPING_THRESHOLD)}.`}</p>
-                  <Link to="/checkout" className="btn btn-solid mt-8 w-full">Proceed to Checkout</Link>
+                  <Link to="/checkout" className="btn btn-3d mt-8 w-full">Proceed to Checkout</Link>
                   <Link to="/collection" className="link-line mt-5 block text-center">Continue browsing</Link>
                 </div>
               </aside>

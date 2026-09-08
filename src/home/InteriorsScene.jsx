@@ -18,7 +18,7 @@ export default function InteriorsScene() {
             <blockquote className="mt-6 text-[clamp(32px,4.8vw,66px)] leading-[1.08]"><Words text="“A carpet is the only artwork you are meant to walk across, and the only one that grows more beautiful for it.”" step={30} /></blockquote>
             <p className="mt-6 eyebrow eyebrow-muted">The MILAEDIA atelier</p>
             <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-              <Link to="/collection" className="btn btn-solid-gold">Find Your Signature Piece</Link>
+              <Link to="/collection" className="btn btn-3d">Find Your Signature Piece</Link>
               <Link to="/bespoke#home-experience" className="btn btn-ivory">See it in your room</Link>
             </div>
           </Reveal>

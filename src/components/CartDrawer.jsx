@@ -54,7 +54,7 @@ export default function CartDrawer() {
               <span className="tabular-nums">{money(totals.subtotal)}</span>
             </div>
             <p className="mt-1 text-[12px] text-ivory/50">Taxes and delivery calculated at checkout.</p>
-            <Link to="/checkout" onClick={closeCart} className="btn btn-solid mt-6 w-full">Checkout</Link>
+            <Link to="/checkout" onClick={closeCart} className="btn btn-3d mt-6 w-full">Checkout</Link>
             <Link to="/cart" onClick={closeCart} className="link-line mt-5 block text-center">View full bag</Link>
           </div>
         </>

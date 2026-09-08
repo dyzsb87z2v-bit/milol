@@ -3,6 +3,7 @@ import { ArrowUpRight, Heart } from 'lucide-react'
 import { money, sizeLabel } from '@/lib/format'
 import { useStore } from '@/store/StoreContext'
 import Img from './Img'
+import { useTilt } from '@/lib/useTilt'
 
 /**
  * Editorial product card: a tall image on a hairline, the family and name
@@ -13,9 +14,12 @@ export default function ProductCard({ product, priority = false, aspect = 'aspec
   const { addToCart, toggleWishlist, isWished, openQuickView } = useStore()
   const wished = isWished(product.id)
   const reserved = product.availability === 'reserved'
+  const { bodyRef, bind } = useTilt(6)
   return (
     <article className="group relative">
-      <div className="relative border hairline transition-colors duration-700 group-hover:border-gold/50">
+      <div {...bind} className="tilt relative">
+      <div ref={bodyRef} className="tilt-body relative border hairline transition-colors duration-700 group-hover:border-gold/60">
+        <div className="tilt-glare" aria-hidden="true" />
         <Link to={`/collection/${product.slug}`} className="block zoom-parent" aria-label={`${product.name}, ${money(product.price)}`}>
           <Img image={product.images[0]} alt={`${product.name}, a ${product.collection.replace(' Collection', '')} rug from ${product.origin}`} className={aspect} priority={priority} sizes={sizes || '(min-width: 1280px) 30vw, (min-width: 768px) 45vw, 90vw'} />
         </Link>
@@ -29,8 +33,9 @@ export default function ProductCard({ product, priority = false, aspect = 'aspec
         </button>
         <div className="card-actions absolute inset-x-4 bottom-4 flex gap-2">
           <button type="button" onClick={() => openQuickView(product.id)} className="btn btn-ivory min-h-[44px] flex-1 px-3 text-[9.5px] backdrop-blur">Quick View</button>
-          <button type="button" onClick={() => addToCart(product.id)} disabled={reserved} className="btn btn-solid min-h-[44px] flex-1 px-3 text-[9.5px]">{reserved ? 'Reserved' : 'Add to Bag'}</button>
+          <button type="button" onClick={() => addToCart(product.id)} disabled={reserved} className="btn btn-3d min-h-[44px] flex-1 px-3 text-[9.5px]">{reserved ? 'Reserved' : 'Add to Bag'}</button>
         </div>
+      </div>
       </div>
       <div className="mt-5 flex items-start justify-between gap-4">
         <div>

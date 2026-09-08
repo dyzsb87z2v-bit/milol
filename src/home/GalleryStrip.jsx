@@ -16,8 +16,8 @@ export default function GalleryStrip() {
           <a href={BRAND.instagram} target="_blank" rel="noreferrer" className="link-line link-gold mt-4 inline-block">Follow {BRAND.instagramHandle}</a>
         </Reveal>
         <div className="hidden gap-2 md:flex">
-          <button type="button" onClick={() => scroll(-1)} className="icon-btn border hairline" aria-label="Scroll left"><ArrowLeft size={15} strokeWidth={1} /></button>
-          <button type="button" onClick={() => scroll(1)} className="icon-btn border hairline" aria-label="Scroll right"><ArrowRight size={15} strokeWidth={1} /></button>
+          <button type="button" onClick={() => scroll(-1)} className="icon-btn border-metal" aria-label="Scroll left"><ArrowLeft size={15} strokeWidth={1} /></button>
+          <button type="button" onClick={() => scroll(1)} className="icon-btn border-metal" aria-label="Scroll right"><ArrowRight size={15} strokeWidth={1} /></button>
         </div>
       </div>
       <div ref={rail} className="rail mt-10 flex gap-3 overflow-x-auto px-[22px] md:gap-4 md:px-12 xl:px-20" aria-label="Gallery">

@@ -21,7 +21,7 @@ export default function Footer() {
         </ul>
         <div className="grid gap-14 py-20 md:grid-cols-12 md:py-24">
           <div className="md:col-span-4">
-            <p className="serif text-[30px] font-light tracking-[0.46em] uppercase">MILAEDIA</p>
+            <p className="serif gold-text text-[30px] font-light tracking-[0.46em] uppercase">MILAEDIA</p>
             <p className="mt-3 eyebrow">{BRAND.strapline}</p>
             <p className="mt-7 max-w-sm text-[15px] leading-relaxed text-ivory/60">A Berlin gallery for exceptional handmade Persian and Turkish carpets: pieces examined knot by knot, documented, and delivered by hand to interiors across Europe and the world.</p>
             <ul className="mt-8 flex gap-2">

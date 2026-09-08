@@ -100,7 +100,7 @@ export default function Product() {
               <div className="lg:sticky lg:top-[calc(var(--header-h)+24px)]">
                 <p className="eyebrow">{product.collection}</p>
                 <h1 className="mt-4 text-[clamp(36px,4.4vw,58px)]">{product.name}</h1>
-                <p className="mt-4 text-[22px] tabular-nums">{money(product.price)}</p>
+                <p className="mt-4 serif gold-text text-[30px] tabular-nums">{money(product.price)}</p>
                 <p className="mt-2 text-[12px] uppercase tracking-[0.2em] text-ivory/55">{AVAILABILITY_LABEL[product.availability]} · {product.delivery}</p>
                 <p className="mt-1 text-[11px] uppercase tracking-[0.2em] text-ivory/40">Ref. {product.sku}</p>
 
@@ -125,7 +125,7 @@ export default function Product() {
 
                 <div className="mt-8 flex flex-wrap items-center gap-4">
                   {!reserved && <QuantityStepper value={qty} onChange={setQty} />}
-                  <button type="button" disabled={reserved} onClick={() => addToCart(product.id, qty)} className="btn btn-solid flex-1">
+                  <button type="button" disabled={reserved} onClick={() => addToCart(product.id, qty)} className="btn btn-3d flex-1">
                     {reserved ? 'Reserved' : `Add to Bag — ${money(product.price * qty)}`}
                   </button>
                   <button type="button" onClick={() => toggleWishlist(product.id)} className="icon-btn h-[52px] w-[52px] border hairline" aria-pressed={wished} aria-label={wished ? 'Remove from wishlist' : 'Add to wishlist'}>

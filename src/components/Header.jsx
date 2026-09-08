@@ -25,7 +25,7 @@ export default function Header() {
     const read = () => {
       raf = 0
       setScrolled(window.scrollY > 24)
-      const probe = document.elementFromPoint(Math.min(window.innerWidth - 1, 40), 60)
+      const probe = document.elementFromPoint(Math.min(window.innerWidth - 1, 40), 96)
       const section = probe?.closest('[data-film]')
       setFilm(section ? section.dataset.film === 'true' : false)
     }
@@ -44,11 +44,12 @@ export default function Header() {
   }, [langOpen])
 
   const pick = (code) => { setLang(code); save('lang', code); setLangOpen(false); document.documentElement.lang = code; document.documentElement.dir = code === 'fa' ? 'rtl' : 'ltr' }
-  const hide = film ? 'opacity-0 pointer-events-none' : 'opacity-100'
+  // The film keeps the header transparent; the navigation stays available.
+  const hide = 'opacity-100'
   const navClass = ({ isActive }) => `link-line text-ivory/85 hover:text-ivory ${isActive ? 'text-ivory' : 'after:scale-x-0 hover:after:scale-x-100 hover:after:origin-left'}`
 
   return (
-    <header className={`fixed inset-x-0 top-0 z-50 text-ivory transition-[background-color,box-shadow,backdrop-filter] duration-700 ease-luxe ${scrolled && !film ? 'bg-black/85 backdrop-blur-md shadow-[0_1px_0_rgba(177,138,74,0.25)]' : 'bg-transparent'}`}>
+    <header className={`fixed inset-x-0 top-0 z-50 text-ivory transition-[background-color,box-shadow,backdrop-filter] duration-700 ease-luxe ${scrolled && !film ? 'header-glass' : 'bg-transparent'}`}>
       <div className="container-site flex h-[var(--header-h)] items-center justify-between gap-6">
         <div className="flex items-center gap-1 lg:hidden">
           <button type="button" onClick={openMenu} className="icon-btn -ml-3" aria-label="Open menu"><Menu size={20} strokeWidth={1} /></button>
@@ -60,7 +61,7 @@ export default function Header() {
           </ul>
         </nav>
 
-        <Link to="/" className={`absolute left-1/2 -translate-x-1/2 serif text-[24px] font-light tracking-[0.46em] uppercase pl-[0.46em] transition-opacity duration-700 ${film ? 'opacity-70' : 'opacity-100'}`} aria-label="MILAEDIA home">
+        <Link to="/" className={`absolute left-1/2 -translate-x-1/2 serif gold-text text-[24px] font-light tracking-[0.46em] uppercase pl-[0.46em] transition-opacity duration-700 opacity-100`} aria-label="MILAEDIA home">
           MILAEDIA
         </Link>
 
@@ -75,7 +76,7 @@ export default function Header() {
             <Heart size={18} strokeWidth={1} />
             {wishlist.length > 0 && <span className="absolute right-2 top-2 h-1.5 w-1.5 rounded-full bg-gold" aria-hidden="true" />}
           </Link>
-          <button type="button" onClick={openCart} className={`icon-btn relative transition-opacity duration-700 ${film ? 'opacity-70' : ''}`} aria-label={`Shopping bag, ${totals.count} items`}>
+          <button type="button" onClick={openCart} className={`icon-btn relative transition-opacity duration-700 `} aria-label={`Shopping bag, ${totals.count} items`}>
             <ShoppingBag size={18} strokeWidth={1} />
             {totals.count > 0 && <span className="absolute -right-0.5 top-1 min-w-[18px] rounded-full bg-gold px-1 text-center text-[10px] font-medium leading-[18px] text-black" aria-hidden="true">{totals.count}</span>}
           </button>

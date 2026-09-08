@@ -9,6 +9,7 @@ import QuickView from './QuickView'
 import Toasts from './Toasts'
 import ScrollToTop from './ScrollToTop'
 import Cursor from './Cursor'
+import Intro from './Intro'
 
 function PageFallback() {
   return (
@@ -28,6 +29,7 @@ export default function Layout() {
       <a href="#main" className="skip-link">Skip to content</a>
       <ScrollToTop />
       <Cursor />
+      <Intro />
       <Header />
       <MobileMenu />
       <main id="main" className="flex-1">
