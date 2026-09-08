@@ -1,52 +1,56 @@
-const sections = [
-  { id: 'about', title: 'درباره ما', text: 'اینجا چند خط درباره پروژه یا کسب‌وکار شما قرار می‌گیرد.' },
-  { id: 'services', title: 'خدمات', text: 'لیست خدمات یا محصولاتی که ارائه می‌دهید.' },
-  { id: 'contact', title: 'تماس', text: 'راه‌های ارتباطی: ایمیل، تلفن، شبکه‌های اجتماعی.' },
-]
+import { lazy } from 'react'
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
+import { StoreProvider } from '@/store/StoreContext'
+import Layout from '@/components/Layout'
+import Home from '@/pages/Home'
+
+// The home page ships in the main bundle so the opening film never waits on
+// a second request; every other page is split and fetched on navigation.
+const Collection = lazy(() => import('@/pages/Collection'))
+const Product = lazy(() => import('@/pages/Product'))
+const Bespoke = lazy(() => import('@/pages/Bespoke'))
+const OurStory = lazy(() => import('@/pages/OurStory'))
+const Journal = lazy(() => import('@/pages/Journal'))
+const JournalArticle = lazy(() => import('@/pages/JournalArticle'))
+const Contact = lazy(() => import('@/pages/Contact'))
+const Cart = lazy(() => import('@/pages/Cart'))
+const Checkout = lazy(() => import('@/pages/Checkout'))
+const OrderConfirmation = lazy(() => import('@/pages/OrderConfirmation'))
+const Account = lazy(() => import('@/pages/Account'))
+const Wishlist = lazy(() => import('@/pages/Wishlist'))
+const Search = lazy(() => import('@/pages/Search'))
+const Info = lazy(() => import('@/pages/Info'))
+const NotFound = lazy(() => import('@/pages/NotFound'))
 
 export default function App() {
   return (
-    <div className="min-h-screen flex flex-col">
-      <header className="border-b border-slate-800">
-        <nav className="mx-auto max-w-5xl px-6 py-4 flex items-center justify-between">
-          <a href="#" className="text-xl font-extrabold tracking-tight">Milol</a>
-          <ul className="flex gap-6 text-sm text-slate-300">
-            {sections.map((s) => (
-              <li key={s.id}>
-                <a href={`#${s.id}`} className="hover:text-white transition-colors">{s.title}</a>
-              </li>
-            ))}
-          </ul>
-        </nav>
-      </header>
-
-      <main className="flex-1">
-        <section className="mx-auto max-w-5xl px-6 py-24 text-center">
-          <h1 className="text-4xl sm:text-6xl font-extrabold leading-tight">
-            به وب‌سایت جدید خوش آمدید
-          </h1>
-          <p className="mt-6 text-lg text-slate-400 max-w-2xl mx-auto">
-            این یک صفحه شروع است. محتوا، رنگ‌ها و بخش‌ها را می‌توان به‌راحتی تغییر داد.
-          </p>
-          <a
-            href="#contact"
-            className="mt-10 inline-block rounded-full bg-indigo-500 px-8 py-3 font-semibold hover:bg-indigo-400 transition-colors"
-          >
-            شروع کنید
-          </a>
-        </section>
-
-        {sections.map((s) => (
-          <section key={s.id} id={s.id} className="mx-auto max-w-5xl px-6 py-16 border-t border-slate-800">
-            <h2 className="text-2xl font-bold">{s.title}</h2>
-            <p className="mt-4 text-slate-400">{s.text}</p>
-          </section>
-        ))}
-      </main>
-
-      <footer className="border-t border-slate-800 py-6 text-center text-sm text-slate-500">
-        © {new Date().getFullYear()} Milol
-      </footer>
-    </div>
+    <BrowserRouter basename={import.meta.env.BASE_URL.replace(/\/$/, '')}>
+      <StoreProvider>
+        <Routes>
+          <Route element={<Layout />}>
+            <Route path="/" element={<Home />} />
+            <Route path="/collection" element={<Collection />} />
+            <Route path="/new-arrivals" element={<Collection newArrivals />} />
+            <Route path="/collection/:slug" element={<Product />} />
+            <Route path="/bespoke" element={<Bespoke />} />
+            <Route path="/our-story" element={<OurStory />} />
+            <Route path="/journal" element={<Journal />} />
+            <Route path="/journal/:slug" element={<JournalArticle />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/checkout" element={<Checkout />} />
+            <Route path="/checkout/confirmation/:id" element={<OrderConfirmation />} />
+            <Route path="/account" element={<Account />} />
+            <Route path="/wishlist" element={<Wishlist />} />
+            <Route path="/search" element={<Search />} />
+            <Route path="/shipping-returns" element={<Info doc="shipping" />} />
+            <Route path="/privacy-policy" element={<Info doc="privacy" />} />
+            <Route path="/terms" element={<Info doc="terms" />} />
+            <Route path="/not-found" element={<NotFound />} />
+            <Route path="*" element={<Navigate to="/not-found" replace />} />
+          </Route>
+        </Routes>
+      </StoreProvider>
+    </BrowserRouter>
   )
 }

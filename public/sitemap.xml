@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://milaedia.example.com/</loc><priority>1.0</priority></url>
+  <url><loc>https://milaedia.example.com/collection</loc><priority>0.7</priority></url>
+  <url><loc>https://milaedia.example.com/new-arrivals</loc><priority>0.7</priority></url>
+  <url><loc>https://milaedia.example.com/bespoke</loc><priority>0.7</priority></url>
+  <url><loc>https://milaedia.example.com/our-story</loc><priority>0.7</priority></url>
+  <url><loc>https://milaedia.example.com/journal</loc><priority>0.7</priority></url>
+  <url><loc>https://milaedia.example.com/contact</loc><priority>0.7</priority></url>
+  <url><loc>https://milaedia.example.com/shipping-returns</loc><priority>0.7</priority></url>
+  <url><loc>https://milaedia.example.com/privacy-policy</loc><priority>0.7</priority></url>
+  <url><loc>https://milaedia.example.com/terms</loc><priority>0.7</priority></url>
+  <url><loc>https://milaedia.example.com/collection/isfahan-silk-garden</loc><priority>0.8</priority></url>
+  <url><loc>https://milaedia.example.com/collection/tabriz-heritage-no-12</loc><priority>0.8</priority></url>
+  <url><loc>https://milaedia.example.com/collection/anatolian-earth</loc><priority>0.8</priority></url>
+  <url><loc>https://milaedia.example.com/collection/kashan-moonlight</loc><priority>0.8</priority></url>
+  <url><loc>https://milaedia.example.com/collection/oushak-quiet-bloom</loc><priority>0.8</priority></url>
+  <url><loc>https://milaedia.example.com/collection/heriz-geometry</loc><priority>0.8</priority></url>
+  <url><loc>https://milaedia.example.com/collection/nain-ivory-medallion</loc><priority>0.8</priority></url>
+  <url><loc>https://milaedia.example.com/collection/konya-dusk</loc><priority>0.8</priority></url>
+  <url><loc>https://milaedia.example.com/journal/how-to-choose-a-rug-for-a-contemporary-interior</loc><lastmod>2026-06-12</lastmod><priority>0.6</priority></url>
+  <url><loc>https://milaedia.example.com/journal/the-language-of-persian-motifs</loc><lastmod>2026-04-28</lastmod><priority>0.6</priority></url>
+  <url><loc>https://milaedia.example.com/journal/caring-for-a-handmade-carpet</loc><lastmod>2026-03-03</lastmod><priority>0.6</priority></url>
+</urlset>
