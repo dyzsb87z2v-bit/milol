@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { Navigate, useParams } from 'react-router-dom'
-import { Heart, ShieldCheck } from 'lucide-react'
+import { Heart, ShieldCheck, Video, Home } from 'lucide-react'
+import { Link } from 'react-router-dom'
 import { bySlug, byId, AVAILABILITY_LABEL } from '@/data/products'
 import { related } from '@/lib/catalog'
 import { money, sizeLabel } from '@/lib/format'
@@ -101,6 +102,7 @@ export default function Product() {
                 <h1 className="mt-4 text-[clamp(36px,4.4vw,58px)]">{product.name}</h1>
                 <p className="mt-4 text-[22px] tabular-nums">{money(product.price)}</p>
                 <p className="mt-2 text-[12px] uppercase tracking-[0.2em] text-charcoal/55">{AVAILABILITY_LABEL[product.availability]} · {product.delivery}</p>
+                <p className="mt-1 text-[11px] uppercase tracking-[0.2em] text-charcoal/40">Ref. {product.sku}</p>
 
                 <dl className="mt-8 grid grid-cols-2 gap-x-6 gap-y-4 border-y hairline py-6 text-[14px]">
                   <div><dt className="eyebrow text-[10px] text-charcoal/50">Origin</dt><dd className="mt-1">{product.origin}</dd></div>
@@ -130,7 +132,24 @@ export default function Product() {
                     <Heart size={18} strokeWidth={1.25} className={wished ? 'fill-gold text-gold' : ''} />
                   </button>
                 </div>
-                {reserved && <p className="mt-4 text-[13px] text-charcoal/60">This piece is currently reserved. <a href="/contact" className="underline underline-offset-4">Enquire</a> about similar rugs or a bespoke commission.</p>}
+                {reserved && <p className="mt-4 text-[13px] text-charcoal/60">This piece is currently reserved. <Link to={`/contact?topic=piece&piece=${encodeURIComponent(`${product.name}, ${product.sku}`)}`} className="underline underline-offset-4">Enquire</Link> about similar rugs or a bespoke commission.</p>}
+
+                <ul className="mt-6 grid grid-cols-3 gap-3 border-y hairline py-4 text-center text-[10px] uppercase tracking-[0.2em] text-charcoal/60">
+                  <li>White-glove delivery</li><li>14-day returns</li><li>Certified authentic</li>
+                </ul>
+
+                <div className="mt-6 grid gap-3 sm:grid-cols-2">
+                  {!reserved && (
+                    <Link to={`/contact?topic=video&piece=${encodeURIComponent(`${product.name}, ${product.sku}`)}`} className="flex items-start gap-3 border hairline p-4 transition-colors hover:border-charcoal">
+                      <Video size={18} strokeWidth={1} className="mt-0.5 shrink-0 text-gold" aria-hidden="true" />
+                      <span><span className="block text-[12px] uppercase tracking-[0.2em]">A closer look</span><span className="mt-1 block text-[13px] leading-snug text-charcoal/65">Request a private video of this exact piece.</span></span>
+                    </Link>
+                  )}
+                  <Link to={`/contact?topic=home&piece=${encodeURIComponent(`${product.name}, ${product.sku}`)}`} className="flex items-start gap-3 border hairline p-4 transition-colors hover:border-charcoal">
+                    <Home size={18} strokeWidth={1} className="mt-0.5 shrink-0 text-gold" aria-hidden="true" />
+                    <span><span className="block text-[12px] uppercase tracking-[0.2em]">See it in your room</span><span className="mt-1 block text-[13px] leading-snug text-charcoal/65">Book the private home experience, at true size.</span></span>
+                  </Link>
+                </div>
 
                 <div className="mt-10">
                   <h2 className="font-sans text-[12px] uppercase tracking-[0.24em] font-medium">Description</h2>
@@ -139,9 +158,9 @@ export default function Product() {
 
                 <div className="mt-8">
                   <Accordion items={[
-                    { title: 'Care instructions', content: product.care },
-                    { title: 'Shipping & returns', content: 'Complimentary white-glove delivery on orders over $2,500 within the continental United States; international delivery is quoted at checkout. Every rug may be returned within 14 days of delivery in its original condition. Made-to-order and bespoke pieces are final sale.' },
-                    { title: 'Viewing in person', content: 'We are happy to bring a selection of rugs to your home for a private viewing in New York, London and Istanbul, or to arrange a video consultation from the atelier.' },
+                    { title: 'Care instructions', content: (<ul className="space-y-2"><li>{product.care}</li><li>Vacuum gently in the direction of the pile, without a beater bar. Never vacuum the fringe.</li><li>Rotate 180° every six months so the carpet mellows evenly in the light.</li><li>Blot spills at once with a clean white cloth and cold water. Do not rub.</li><li>Have the piece professionally hand-washed every five to seven years. We can arrange this.</li></ul>) },
+                    { title: 'Shipping & returns', content: 'Every carpet ships from Berlin, fully insured, with white-glove delivery: it is unrolled and placed in the room of your choice, and the packaging is taken away. Five to ten working days across Europe, ten to fifteen internationally. Stock pieces may be returned within fourteen days of delivery; made-to-order and bespoke pieces are final sale.' },
+                    { title: 'Viewing in person', content: 'There is no showroom to walk into. We bring pieces to your home anywhere in Europe, laid on your floor at true size in your own light, with no fee within Berlin. Or ask for a private video of this exact piece.' },
                   ]} />
                 </div>
 
@@ -149,7 +168,7 @@ export default function Product() {
                   <ShieldCheck size={22} strokeWidth={1} className="shrink-0 text-gold" aria-hidden="true" />
                   <div>
                     <h2 className="font-sans text-[12px] uppercase tracking-[0.24em] font-medium">Certificate of Authenticity</h2>
-                    <p className="mt-2 text-[14px] leading-relaxed text-charcoal/70">Each MILAEDIA rug is delivered with a signed certificate recording its origin, materials, knot count and the date of weaving, together with lifetime care guidance.</p>
+                    <p className="mt-2 text-[14px] leading-relaxed text-charcoal/70">Each MILAEDIA carpet is accompanied by a signed certificate recording its origin, weaver or workshop, materials, knot density, dyes and dimensions, together with the atelier photographs from this page. The certificate is registered to reference {product.sku} and transfers with the carpet.</p>
                   </div>
                 </div>
               </div>

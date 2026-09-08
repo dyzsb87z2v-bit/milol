@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import Reveal from '@/components/Reveal'
 import Img from '@/components/Img'
+import { PILLARS } from '@/data/site'
 
 export default function Introduction() {
   return (
@@ -26,6 +27,16 @@ export default function Introduction() {
             </Reveal>
           </div>
         </div>
+        <Reveal className="mt-24 md:mt-32">
+          <ul className="grid gap-8 border-y hairline py-10 sm:grid-cols-2 lg:grid-cols-5" aria-label="Why MILAEDIA">
+            {PILLARS.map((p) => (
+              <li key={p.title}>
+                <p className="text-[12px] uppercase tracking-[0.22em]">{p.title}</p>
+                <p className="mt-2 text-[13px] leading-relaxed text-charcoal/60">{p.text}</p>
+              </li>
+            ))}
+          </ul>
+        </Reveal>
       </div>
     </section>
   )

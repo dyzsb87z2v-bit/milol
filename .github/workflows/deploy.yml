@@ -27,9 +27,12 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run lint
+      # The site lives at the custom domain milaedia.com (public/CNAME), so it
+      # is served from the root. Set BASE_PATH to /<repo>/ instead if you ever
+      # serve it from <user>.github.io/<repo>/.
       - run: npm run build
         env:
-          BASE_PATH: /${{ github.event.repository.name }}/
+          BASE_PATH: /
       # GitHub Pages has no rewrite rules; serving the app as 404.html lets
       # deep links such as /collection/isfahan-silk-garden load the router.
       - run: cp dist/index.html dist/404.html

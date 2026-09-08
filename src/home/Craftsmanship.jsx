@@ -3,9 +3,9 @@ import Img from '@/components/Img'
 import SectionHeading from '@/components/SectionHeading'
 
 const STEPS = [
-  { n: '01', title: 'Inspired by History', text: 'Every design begins in the archive: Safavid court carpets, Anatolian village weaves and the gardens that inspired them both.', image: { src: '/img/craft-history.webp', small: '/img/craft-history-sm.webp' }, alt: 'A classical medallion carpet hanging in a dark gallery' },
-  { n: '02', title: 'Handwoven by Master Artisans', text: 'Hand-spun wool and silk, natural dyes and up to a million knots per square metre, tied one at a time over many months.', image: { src: '/img/craft-fibers.webp', small: '/img/craft-fibers-sm.webp' }, alt: 'Close-up of hand-knotted wool fibres in crimson and ivory' },
-  { n: '03', title: 'Collected for Generations', text: 'A MILAEDIA rug is finished, washed and documented, then delivered to a room where it will outlast everything around it.', image: { src: '/img/craft-collected.webp', small: '/img/craft-collected-sm.webp' }, alt: 'A handmade carpet in a quiet, light-filled living room' },
+  { n: '01', title: 'Inspired by History', text: 'Every design begins in the archive: a Safavid garden carpet, a village prayer rug, the geometry of a tiled courtyard. We draw from six centuries of pattern and choose what still speaks.', image: { src: '/img/craft-history.webp', small: '/img/craft-history-sm.webp' }, alt: 'A classical medallion carpet hanging in a dark gallery' },
+  { n: '02', title: 'Handwoven by Master Artisans', text: 'Silk is reeled by hand, wool is spun on the spindle, and a single carpet passes through the fingers of a master weaver up to a million times before it leaves the loom.', image: { src: '/img/silk-hand.webp', small: '/img/silk-hand-sm.webp' }, alt: 'An artisan’s hand drawing silk filaments from a cocoon' },
+  { n: '03', title: 'Collected for Generations', text: 'A hand-knotted carpet does not wear out. It wears in. The pieces we sell are chosen to be lived on, handed down, and loved more in fifty years than they are today.', image: { src: '/img/craft-collected.webp', small: '/img/craft-collected-sm.webp' }, alt: 'A handmade carpet in a quiet, light-filled living room' },
 ]
 
 export default function Craftsmanship() {
@@ -13,6 +13,11 @@ export default function Craftsmanship() {
     <section data-tone="light" className="bg-ivory text-charcoal py-24 md:py-36">
       <div className="container-site">
         <SectionHeading eyebrow="Craftsmanship" title="Made Slowly. Made to Last." align="center" />
+        <Reveal className="mx-auto mt-12 grid max-w-3xl grid-cols-3 gap-6 border-y hairline py-8 text-center">
+          {[['490,000', 'knots in one square metre at 50 raj'], ['8 – 14', 'months for a fine 3 × 2 m piece'], ['2', 'warps carried by every knot']].map(([a, b]) => (
+            <div key={b}><p className="serif text-[clamp(28px,4vw,44px)]">{a}</p><p className="mt-2 text-[11px] uppercase tracking-[0.2em] text-charcoal/55">{b}</p></div>
+          ))}
+        </Reveal>
         <div className="mt-16 grid gap-12 md:grid-cols-3 md:gap-8">
           {STEPS.map((s, i) => (
             <Reveal key={s.n} delay={i * 110} className={i === 1 ? 'md:mt-16' : ''}>
@@ -25,6 +30,9 @@ export default function Craftsmanship() {
             </Reveal>
           ))}
         </div>
+        <Reveal className="mx-auto mt-20 max-w-3xl text-center">
+          <p className="text-[16px] leading-relaxed text-charcoal/70">Colour changes, tension and row density are judged by hand, by eye, and by feel. This is why two rugs woven from the same design are never identical: the hand leaves its trace in every knot.</p>
+        </Reveal>
       </div>
     </section>
   )

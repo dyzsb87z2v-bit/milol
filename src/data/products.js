@@ -8,6 +8,7 @@ const img = (name) => ({ src: `/img/${name}.webp`, small: `/img/${name}-sm.webp`
 export const PRODUCTS = [
   {
     id: 'p1',
+    sku: 'MLD-IS-001',
     slug: 'isfahan-silk-garden',
     name: 'Isfahan Silk Garden',
     collection: 'Persian Collection',
@@ -34,6 +35,7 @@ export const PRODUCTS = [
   },
   {
     id: 'p2',
+    sku: 'MLD-TB-012',
     slug: 'tabriz-heritage-no-12',
     name: 'Tabriz Heritage No. 12',
     collection: 'Persian Collection',
@@ -60,6 +62,7 @@ export const PRODUCTS = [
   },
   {
     id: 'p3',
+    sku: 'MLD-AN-003',
     slug: 'anatolian-earth',
     name: 'Anatolian Earth',
     collection: 'Turkish Collection',
@@ -86,6 +89,7 @@ export const PRODUCTS = [
   },
   {
     id: 'p4',
+    sku: 'MLD-KS-004',
     slug: 'kashan-moonlight',
     name: 'Kashan Moonlight',
     collection: 'Persian Collection',
@@ -112,6 +116,7 @@ export const PRODUCTS = [
   },
   {
     id: 'p5',
+    sku: 'MLD-OU-005',
     slug: 'oushak-quiet-bloom',
     name: 'Oushak Quiet Bloom',
     collection: 'Turkish Collection',
@@ -138,6 +143,7 @@ export const PRODUCTS = [
   },
   {
     id: 'p6',
+    sku: 'MLD-HZ-006',
     slug: 'heriz-geometry',
     name: 'Heriz Geometry',
     collection: 'Persian Collection',
@@ -164,13 +170,14 @@ export const PRODUCTS = [
   },
   {
     id: 'p7',
-    slug: 'nain-ivory-medallion',
-    name: 'Nain Ivory Medallion',
+    sku: 'MLD-NA-007',
+    slug: 'nain-ivory-lattice',
+    name: 'Nain Ivory Lattice',
     collection: 'Persian Collection',
     origin: 'Nain, Iran',
     country: 'Iran',
-    size: { w: 200, h: 300 },
-    price: 5200,
+    size: { w: 150, h: 200 },
+    price: 2900,
     colors: ['Ivory', 'Pale Blue', 'Taupe'],
     swatches: ['#efe6d6', '#9fb0bf', '#8c7f70'],
     materials: 'Fine wool and silk on cotton, 6La quality',
@@ -182,37 +189,38 @@ export const PRODUCTS = [
     isNew: false,
     featured: false,
     images: [img('nain-1'), img('nain-2'), img('nain-3')],
-    short: 'Ivory, pale blue and taupe in the finest Nain weave: a whisper of pattern for light-filled rooms.',
+    short: 'Nain is where Persian weaving becomes jewellery: ivory, pale blue and taupe in a lattice of silk-outlined vines.',
     description:
-      'Nain weaving is defined by its finesse and its pale, tonal palettes. This Ivory Medallion is woven in 6La quality, with silk outlining every motif so the pattern seems to float. It is the rug we recommend most often for contemporary interiors that want history without weight.',
+      'Nain is where Persian weaving becomes jewellery. This Ivory Lattice is woven in 6La quality, with silk outlining every vine so the pattern seems to float above its pale ground. Compact enough for a study or a bedside, it is the rug we recommend most often for contemporary interiors that want history without weight.',
     care: 'Vacuum gently with suction only. Keep out of prolonged direct sunlight. Professional hand-washing only.',
     tags: ['medallion', 'silk', 'wool', 'ivory', 'pale'],
   },
   {
     id: 'p8',
+    sku: 'MLD-KO-008',
     slug: 'konya-dusk',
     name: 'Konya Dusk',
     collection: 'Turkish Collection',
     origin: 'Konya, Türkiye',
     country: 'Türkiye',
-    size: { w: 150, h: 220 },
-    price: 2100,
+    size: { w: 300, h: 400 },
+    price: 6200,
     colors: ['Rust', 'Ochre', 'Slate'],
     swatches: ['#9c4a35', '#c0924c', '#5b6270'],
     materials: 'Hand-spun wool on wool foundation',
     weaving: 'Hand-knotted, symmetric Turkish knot',
     density: '≈ 140,000 knots per m²',
     era: 'Contemporary, woven 2024',
-    availability: 'in-stock',
-    delivery: '5–10 business days, white-glove',
+    availability: 'made-to-order',
+    delivery: '18–20 weeks, made to order',
     isNew: true,
     featured: false,
     images: [img('konya-1'), img('konya-2'), img('konya-3')],
-    short: 'The warm last light of the steppe: rust and ochre against slate, in a compact village weave.',
+    short: 'The largest piece in the collection, woven for the largest rooms: rust and ochre against slate in the last light of the steppe.',
     description:
-      'Konya Dusk is a village rug in the truest sense, woven on a horizontal loom from wool the weavers spun themselves. Its palette comes from the hour before dark on the Anatolian plateau. Compact and characterful, it suits entrances, studies and bedsides.',
+      'Konya Dusk is a village rug in the truest sense, woven on a wide loom from wool the weavers spun themselves. The Konya region has woven carpets since the thirteenth century, and this piece carries that lineage at salon scale. Its palette comes from the hour before dark on the Anatolian plateau: rust, ochre and a slate that deepens at the border. Woven to order for rooms of 30 square metres and more.',
     care: 'Shake outdoors occasionally and vacuum gently. Blot spills; do not rub. Professional cleaning recommended.',
-    tags: ['village', 'wool', 'rust', 'small', 'geometric'],
+    tags: ['village', 'wool', 'rust', 'oversize', 'geometric'],
   },
 ]
 
@@ -226,9 +234,10 @@ export const AVAILABILITY_LABEL = {
 }
 
 export const SIZE_BUCKETS = [
-  { id: 'small', label: 'Up to 170 × 240', test: (p) => p.size.w * p.size.h <= 170 * 240 },
-  { id: 'medium', label: '170 × 240 – 200 × 300', test: (p) => p.size.w * p.size.h > 170 * 240 && p.size.w * p.size.h <= 200 * 300 },
-  { id: 'large', label: 'Over 200 × 300', test: (p) => p.size.w * p.size.h > 200 * 300 },
+  { id: 'small', label: 'Small · up to 170 × 240', test: (p) => p.size.w * p.size.h <= 170 * 240 },
+  { id: 'medium', label: 'Medium · to 200 × 300', test: (p) => p.size.w * p.size.h > 170 * 240 && p.size.w * p.size.h <= 200 * 300 },
+  { id: 'large', label: 'Large · to 250 × 350', test: (p) => p.size.w * p.size.h > 200 * 300 && p.size.w * p.size.h <= 250 * 350 },
+  { id: 'oversize', label: 'Oversize · 300 × 400 and above', test: (p) => p.size.w * p.size.h > 250 * 350 },
 ]
 
 export const PRICE_BUCKETS = [

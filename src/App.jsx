@@ -46,6 +46,7 @@ export default function App() {
             <Route path="/shipping-returns" element={<Info doc="shipping" />} />
             <Route path="/privacy-policy" element={<Info doc="privacy" />} />
             <Route path="/terms" element={<Info doc="terms" />} />
+            <Route path="/imprint" element={<Info doc="imprint" />} />
             <Route path="/not-found" element={<NotFound />} />
             <Route path="*" element={<Navigate to="/not-found" replace />} />
           </Route>

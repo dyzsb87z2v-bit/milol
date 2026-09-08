@@ -16,9 +16,11 @@ export default function Footer() {
         <div className="grid gap-14 md:grid-cols-12">
           <div className="md:col-span-4">
             <p className="serif text-[26px] tracking-[0.42em] uppercase">MILAEDIA</p>
+            <p className="mt-3 eyebrow text-gold">{BRAND.strapline}</p>
             <p className="mt-6 max-w-xs text-[15px] leading-relaxed text-ivory/65">
-              Handmade Persian and Turkish carpets, chosen one at a time for interiors that value quiet, lasting beauty.
+              A Berlin-based gallery for handmade Persian and Turkish carpets, chosen one at a time for interiors that value quiet, lasting beauty.
             </p>
+            <p className="mt-5 text-[13px] leading-relaxed text-ivory/55">{BRAND.address}<br />{BRAND.hours}<br /><a href={`mailto:${BRAND.email}`} className="hover:text-ivory">{BRAND.email}</a> · <a href={BRAND.whatsapp} target="_blank" rel="noreferrer" className="hover:text-ivory">WhatsApp</a></p>
             <ul className="mt-8 flex gap-3">
               <li><a href={BRAND.instagram} target="_blank" rel="noreferrer" className="icon-btn text-ivory/80 hover:text-ivory" aria-label="Instagram"><Instagram /></a></li>
               <li><a href={BRAND.pinterest} target="_blank" rel="noreferrer" className="icon-btn text-ivory/80 hover:text-ivory" aria-label="Pinterest"><Pinterest /></a></li>
@@ -45,7 +47,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="mt-20 flex flex-col gap-4 border-t hairline-light pt-8 text-[12px] text-ivory/50 md:flex-row md:items-center md:justify-between">
-          <p>© 2026 MILAEDIA. All rights reserved.</p>
+          <p>© 2026 MILAEDIA. All rights reserved. · {BRAND.locationLine}</p>
           <ul className="flex flex-wrap gap-6">
             {LEGAL_LINKS.map((n) => <li key={n.to}><Link to={n.to} className="hover:text-ivory transition-colors">{n.label}</Link></li>)}
             <li><Link to="/shipping-returns" className="hover:text-ivory transition-colors">Shipping & Returns</Link></li>

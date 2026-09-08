@@ -27,7 +27,7 @@ export default function JournalArticle() {
   const a = articleBySlug(slug)
   useSeo({ title: a?.title, description: a?.excerpt, image: a ? asset(a.image) : undefined, type: 'article', jsonLd: a && { '@context': 'https://schema.org', '@type': 'Article', headline: a.title, datePublished: a.date, author: { '@type': 'Organization', name: 'MILAEDIA' } } })
   if (!a) return <Navigate to="/not-found" replace />
-  const more = ARTICLES.filter((x) => x.slug !== a.slug)
+  const more = ARTICLES.filter((x) => x.slug !== a.slug && x.category === a.category).concat(ARTICLES.filter((x) => x.slug !== a.slug && x.category !== a.category)).slice(0, 2)
   return (
     <>
       <article data-tone="light" className="bg-ivory text-charcoal pt-[calc(var(--header-h)+32px)]">
@@ -36,6 +36,7 @@ export default function JournalArticle() {
           <header className="mx-auto mt-10 max-w-3xl text-center">
             <p className="eyebrow text-gold">{a.category} · {dateLong(a.date)} · {a.readTime}</p>
             <h1 className="mt-6 text-[clamp(38px,5.4vw,72px)]">{a.title}</h1>
+            {a.subtitle && <p className="mt-4 serif text-[24px] italic text-charcoal/70">{a.subtitle}</p>}
             <p className="mt-6 text-[18px] leading-relaxed text-charcoal/65">{a.excerpt}</p>
           </header>
           <Img image={{ src: a.image, small: a.imageSmall }} alt="" className="mt-14 aspect-[16/9]" priority sizes="100vw" />
