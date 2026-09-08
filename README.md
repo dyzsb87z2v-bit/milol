@@ -1,22 +1,73 @@
-# Milol
+# MILAEDIA
 
-وب‌سایت جدید، ساخته‌شده با React + Vite + Tailwind CSS.
+**Timeless Art for Exceptional Interiors.**
+The e-commerce site of MILAEDIA, a Berlin-based gallery for luxury handmade Persian and Turkish carpets. Built with React, Vite and Tailwind CSS.
 
-## اجرا در محیط محلی
+## Publishing (read this first)
+
+Every push to `main` builds the site and publishes it to GitHub Pages through `.github/workflows/deploy.yml`.
+
+**One-time setup, required:** in the repository open **Settings → Pages → Build and deployment** and set **Source** to **GitHub Actions**. With the default "Deploy from a branch" GitHub publishes the raw source instead of the built site and the page stays blank.
+
+Until the custom domain is connected the site is served at `https://dyzsb87z2v-bit.github.io/milol/`. The workflow detects that sub-path automatically.
+
+**Custom domain (milaedia.com):** add these DNS records at the registrar, then enter `milaedia.com` under Settings → Pages → Custom domain and tick "Enforce HTTPS". The next deploy switches to the root path on its own.
+
+```
+A     @    185.199.108.153
+A     @    185.199.109.153
+A     @    185.199.110.153
+A     @    185.199.111.153
+CNAME www  dyzsb87z2v-bit.github.io
+```
+
+## Highlights
+
+- **Cinematic 3D scroll hero.** The homepage opens on the brand film edge-to-edge. Scrolling pins the scene and drives a reversible transformation: the film recedes in perspective, scales into a rounded floating card with a soft shadow and a slight tilt, while the stage turns from charcoal through stone to ivory and the copy fades. On phones the landscape film letterboxes into a 4:5 card. `prefers-reduced-motion` gets a static frame.
+- **Working commerce.** Bag with add / remove / quantity, wishlist, search with keyboard navigation, filters and sorting synced to the URL, quick view, a four-step validated checkout, order confirmation, account area (orders, addresses, profile), toasts, empty states. Cart, wishlist, recently viewed, orders and account persist in `localStorage`.
+- **The gallery's own content.** Our Story (four commitments, the silk journey, six weaving cities, how pieces are chosen), services, the private home experience, "A Closer Look" private videos, the Collector's Guide in the Journal, shipping and legal terms under German law, an imprint.
+- **Accessibility and SEO.** Semantic HTML, skip link, focus-trapped dialogs, keyboard-navigable search, visible focus rings, alt text, per-page titles, descriptions, Open Graph, canonical links, Store, Product and Article JSON-LD, sitemap and robots.
+
+## Development
 
 ```bash
 npm install
-npm run dev
-```
-
-## ساخت نسخه نهایی
-
-```bash
+npm run dev       # http://localhost:5173
+npm run lint
 npm run build
 npm run preview
 ```
 
-## انتشار
+Regenerate `public/sitemap.xml` after adding products or articles:
 
-با هر push روی برنچ `main`، سایت به‌صورت خودکار روی GitHub Pages منتشر می‌شود.
-یک بار در تنظیمات ریپو، بخش **Pages**، گزینه Source را روی **GitHub Actions** بگذارید.
+```bash
+node scripts/sitemap.mjs
+```
+
+## Structure
+
+```
+public/            video, images, favicon, manifest, robots, sitemap
+src/
+  components/      header, footer, drawers, modals, cards, primitives
+  data/            site facts and services, catalogue, journal and guides
+  home/            homepage sections including the scroll hero
+  lib/             catalog filtering, formatting, SEO, storage helpers
+  pages/           routed pages
+  store/           cart / wishlist / orders / UI state (React context)
+  styles/          design tokens and primitives
+```
+
+Brand facts, services, trust pillars and weaving regions live in `src/data/site.js`; the catalogue in `src/data/products.js`; the Journal and Collector's Guide in `src/data/journal.js`.
+
+## Brand
+
+| Token | Value |
+| --- | --- |
+| Deep Charcoal | `#161616` |
+| Warm Ivory | `#F5F0E8` |
+| Sand | `#D7C5AC` |
+| Antique Gold | `#B08A57` |
+| Soft Stone Grey | `#A7A39B` |
+
+Headings: Cormorant Garamond. Body: Manrope.
