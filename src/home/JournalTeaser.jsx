@@ -1,36 +1,40 @@
 import { Link } from 'react-router-dom'
 import { ARTICLES } from '@/data/journal'
-import Reveal from '@/components/Reveal'
+import Reveal, { Words } from '@/components/Reveal'
 import Img from '@/components/Img'
-import SectionHeading from '@/components/SectionHeading'
 
-export function ArticleCard({ article, delay = 0 }) {
+const HOME_SLUGS = ['how-to-choose-a-carpet-for-a-modern-interior', 'the-language-of-persian-motifs', 'a-guide-to-handmade-turkish-rugs']
+
+export function ArticleCard({ article, delay = 0, large = false }) {
   return (
-    <Reveal as="article" delay={delay}>
-      <Link to={`/journal/${article.slug}`} className="block zoom-parent">
-        <Img image={{ src: article.image, small: article.imageSmall }} alt="" className="aspect-[4/3]" sizes="(min-width: 768px) 30vw, 100vw" />
+    <Reveal as="article" delay={delay} className="group">
+      <Link to={`/journal/${article.slug}`} className="block border hairline transition-colors duration-700 group-hover:border-gold/50">
+        <Reveal mask>
+          <Img image={{ src: article.image, small: article.imageSmall }} alt="" className={large ? 'aspect-[16/10]' : 'aspect-[4/3]'} imgClassName="transition-transform duration-[1800ms] ease-luxe group-hover:scale-105" sizes="(min-width: 768px) 33vw, 100vw" />
+        </Reveal>
       </Link>
-      <p className="mt-6 eyebrow text-gold">{article.category}</p>
-      <h3 className="mt-3 text-[clamp(24px,2.4vw,30px)] leading-tight">
-        <Link to={`/journal/${article.slug}`} className="hover:text-gold transition-colors">{article.title}</Link>
-      </h3>
-      <p className="mt-3 text-[15px] leading-relaxed text-charcoal/65">{article.excerpt}</p>
-      <Link to={`/journal/${article.slug}`} className="link-line mt-5 inline-block">Read Article</Link>
+      <p className="mt-6 eyebrow">{article.category} · {article.readTime}</p>
+      <h3 className="mt-3 text-[clamp(26px,2.4vw,32px)] leading-tight"><Link to={`/journal/${article.slug}`} className="transition-colors hover:text-gold">{article.title}</Link></h3>
+      <p className="mt-3 text-[14.5px] leading-relaxed text-ivory/60">{article.excerpt}</p>
+      <Link to={`/journal/${article.slug}`} className="link-line link-gold mt-5 inline-block">Read Article</Link>
     </Reveal>
   )
 }
 
 export default function JournalTeaser() {
+  const items = HOME_SLUGS.map((s) => ARTICLES.find((a) => a.slug === s)).filter(Boolean)
   return (
-    <section data-tone="light" className="bg-ivory text-charcoal pb-24 md:pb-36">
+    <section data-tone="dark" className="bg-black text-ivory py-24 md:py-36">
       <div className="container-site">
-        <div className="rule mb-20 md:mb-28" />
-        <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
-          <SectionHeading eyebrow="Journal" title="The Journal" subtitle="Notes on interiors, heritage and the care of handmade things." />
-          <Reveal delay={100} className="md:pb-3"><Link to="/journal" className="link-line">All articles</Link></Reveal>
-        </div>
+        <Reveal className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p className="eyebrow">Editorial Journal</p>
+            <h2 className="mt-5 text-[clamp(38px,5vw,66px)]"><Words text="Notes for people who keep what they buy." /></h2>
+          </div>
+          <Link to="/journal" className="link-line link-gold md:pb-3">All articles</Link>
+        </Reveal>
         <div className="mt-14 grid gap-12 md:grid-cols-3 md:gap-8">
-          {ARTICLES.map((a, i) => <ArticleCard key={a.slug} article={a} delay={i * 100} />)}
+          {items.map((a, i) => <ArticleCard key={a.slug} article={a} delay={i * 100} />)}
         </div>
       </div>
     </section>

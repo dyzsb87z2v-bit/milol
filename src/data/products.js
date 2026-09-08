@@ -8,6 +8,7 @@ const img = (name) => ({ src: `/img/${name}.webp`, small: `/img/${name}-sm.webp`
 export const PRODUCTS = [
   {
     id: 'p1',
+    family: 'persian-heritage',
     sku: 'MLD-IS-001',
     slug: 'isfahan-silk-garden',
     name: 'Isfahan Silk Garden',
@@ -35,6 +36,7 @@ export const PRODUCTS = [
   },
   {
     id: 'p2',
+    family: 'persian-heritage',
     sku: 'MLD-TB-012',
     slug: 'tabriz-heritage-no-12',
     name: 'Tabriz Heritage No. 12',
@@ -62,6 +64,7 @@ export const PRODUCTS = [
   },
   {
     id: 'p3',
+    family: 'turkish-elegance',
     sku: 'MLD-AN-003',
     slug: 'anatolian-earth',
     name: 'Anatolian Earth',
@@ -89,6 +92,7 @@ export const PRODUCTS = [
   },
   {
     id: 'p4',
+    family: 'persian-heritage',
     sku: 'MLD-KS-004',
     slug: 'kashan-moonlight',
     name: 'Kashan Moonlight',
@@ -116,6 +120,7 @@ export const PRODUCTS = [
   },
   {
     id: 'p5',
+    family: 'contemporary-icons',
     sku: 'MLD-OU-005',
     slug: 'oushak-quiet-bloom',
     name: 'Oushak Quiet Bloom',
@@ -143,6 +148,7 @@ export const PRODUCTS = [
   },
   {
     id: 'p6',
+    family: 'persian-heritage',
     sku: 'MLD-HZ-006',
     slug: 'heriz-geometry',
     name: 'Heriz Geometry',
@@ -170,6 +176,7 @@ export const PRODUCTS = [
   },
   {
     id: 'p7',
+    family: 'contemporary-icons',
     sku: 'MLD-NA-007',
     slug: 'nain-ivory-lattice',
     name: 'Nain Ivory Lattice',
@@ -197,6 +204,7 @@ export const PRODUCTS = [
   },
   {
     id: 'p8',
+    family: 'turkish-elegance',
     sku: 'MLD-KO-008',
     slug: 'konya-dusk',
     name: 'Konya Dusk',

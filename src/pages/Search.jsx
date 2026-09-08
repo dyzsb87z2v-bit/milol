@@ -17,7 +17,7 @@ export default function Search() {
   return (
     <>
       <PageHero eyebrow="Search" title={q ? `“${q}”` : 'Search the collection'} intro={q ? `${items.length} ${items.length === 1 ? 'piece matches' : 'pieces match'} your search.` : undefined} />
-      <section data-tone="light" className="bg-ivory text-charcoal pb-24 md:pb-36">
+      <section data-tone="dark" className="bg-black text-ivory pb-24 md:pb-36">
         <div className="container-site">
           {items.length === 0 ? (
             <EmptyState title={q ? 'No pieces found' : 'What are you looking for?'} text={q ? 'Try a colour, an origin such as Isfahan or Konya, or a material such as silk.' : 'Search by name, origin, colour or material.'} cta={{ label: 'Search again' }} onCta={openSearch} />

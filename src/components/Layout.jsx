@@ -8,10 +8,11 @@ import SearchOverlay from './SearchOverlay'
 import QuickView from './QuickView'
 import Toasts from './Toasts'
 import ScrollToTop from './ScrollToTop'
+import Cursor from './Cursor'
 
 function PageFallback() {
   return (
-    <div data-tone="light" className="container-site pt-[calc(var(--header-h)+80px)] pb-32" aria-busy="true" aria-live="polite">
+    <div data-tone="dark" className="container-site pt-[calc(var(--header-h)+80px)] pb-32" aria-busy="true" aria-live="polite">
       <div className="skeleton h-3 w-32" />
       <div className="skeleton mt-6 h-16 w-2/3" />
       <div className="mt-16 grid gap-8 md:grid-cols-3">
@@ -26,6 +27,7 @@ export default function Layout() {
     <div className="flex min-h-screen flex-col">
       <a href="#main" className="skip-link">Skip to content</a>
       <ScrollToTop />
+      <Cursor />
       <Header />
       <MobileMenu />
       <main id="main" className="flex-1">

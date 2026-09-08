@@ -40,23 +40,23 @@ export default function Contact() {
   return (
     <>
       <PageHero eyebrow="Contact · Berlin" title="We would love to hear from you." intro="Write to us about a rug, a room, a private video or a commission, or arrange a visit. We reply personally. No automated pricing." />
-      <section data-tone="light" className="bg-ivory text-charcoal pb-24 md:pb-36">
+      <section data-tone="dark" className="bg-black text-ivory pb-24 md:pb-36">
         <div className="container-site grid gap-14 lg:grid-cols-12">
           <Reveal className="lg:col-span-4 space-y-10">
             <div>
-              <p className="eyebrow text-gold">Gallery</p>
-              <p className="mt-4 text-[16px] leading-relaxed text-charcoal/75">{BRAND.address}<br />{BRAND.hours}</p>
-              <p className="mt-2 text-[13px] leading-relaxed text-charcoal/55">There is no showroom to walk into. We bring pieces to you, or receive you by appointment.</p>
+              <p className="eyebrow">Gallery</p>
+              <p className="mt-4 text-[16px] leading-relaxed text-ivory/75">{BRAND.address}<br />{BRAND.hours}</p>
+              <p className="mt-2 text-[13px] leading-relaxed text-ivory/55">There is no showroom to walk into. We bring pieces to you, or receive you by appointment.</p>
             </div>
             <div>
-              <p className="eyebrow text-gold">Write</p>
-              <p className="mt-4"><a href={`mailto:${BRAND.email}`} className="text-[16px] underline underline-offset-4 decoration-charcoal/30 hover:decoration-charcoal">{BRAND.email}</a></p>
-              <p className="mt-1"><a href={`tel:${BRAND.phone.replace(/[^+\d]/g, '')}`} className="text-[16px] underline underline-offset-4 decoration-charcoal/30 hover:decoration-charcoal">{BRAND.phone}</a></p>
-              <a href={`${BRAND.whatsapp}?text=${encodeURIComponent(waText)}`} target="_blank" rel="noreferrer" className="btn btn-charcoal mt-6 gap-3"><WhatsApp /> Message on WhatsApp</a>
+              <p className="eyebrow">Write</p>
+              <p className="mt-4"><a href={`mailto:${BRAND.email}`} className="text-[16px] underline underline-offset-4 decoration-ivory/30 hover:decoration-ivory">{BRAND.email}</a></p>
+              <p className="mt-1"><a href={`tel:${BRAND.phone.replace(/[^+\d]/g, '')}`} className="text-[16px] underline underline-offset-4 decoration-ivory/30 hover:decoration-ivory">{BRAND.phone}</a></p>
+              <a href={`${BRAND.whatsapp}?text=${encodeURIComponent(waText)}`} target="_blank" rel="noreferrer" className="btn btn-ivory mt-6 gap-3"><WhatsApp /> Message on WhatsApp</a>
             </div>
             <div>
-              <p className="eyebrow text-gold">Follow</p>
-              <p className="mt-4"><a href={BRAND.instagram} target="_blank" rel="noreferrer" className="text-[16px] underline underline-offset-4 decoration-charcoal/30 hover:decoration-charcoal">Instagram {BRAND.instagramHandle}</a></p>
+              <p className="eyebrow">Follow</p>
+              <p className="mt-4"><a href={BRAND.instagram} target="_blank" rel="noreferrer" className="text-[16px] underline underline-offset-4 decoration-ivory/30 hover:decoration-ivory">Instagram {BRAND.instagramHandle}</a></p>
             </div>
           </Reveal>
           <Reveal delay={120} className="lg:col-span-7 lg:col-start-6">
@@ -84,7 +84,7 @@ export default function Contact() {
                   <div className="sm:col-span-2">
                     <label htmlFor="c-piece" className="label">Which piece?</label>
                     <input id="c-piece" className="field" value={form.piece} onChange={set('piece')} placeholder="e.g. Isfahan Silk Garden, MLD-IS-001" />
-                    {form.topic === 'video' && <p className="mt-2 text-[12px] text-charcoal/55">We film the exact piece you are considering, the pile under moving light, the reverse, the selvedge, the colour as it truly reads, and send it to you personally, usually within a few days. Only available pieces are filmed.</p>}
+                    {form.topic === 'video' && <p className="mt-2 text-[12px] text-ivory/55">We film the exact piece you are considering, the pile under moving light, the reverse, the selvedge, the colour as it truly reads, and send it to you personally, usually within a few days. Only available pieces are filmed.</p>}
                   </div>
                 )}
                 <div className="sm:col-span-2">

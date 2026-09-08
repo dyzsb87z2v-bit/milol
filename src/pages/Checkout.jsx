@@ -79,15 +79,15 @@ export default function Checkout() {
   }
 
   return (
-    <section data-tone="light" className="bg-ivory text-charcoal pt-[calc(var(--header-h)+40px)] pb-24 md:pb-36">
+    <section data-tone="dark" className="bg-black text-ivory pt-[calc(var(--header-h)+40px)] pb-24 md:pb-36">
       <div className="container-site">
-        <p className="eyebrow text-gold">Checkout</p>
+        <p className="eyebrow">Checkout</p>
         <h1 className="mt-4 text-[clamp(36px,4.6vw,60px)]">{STEPS[step]}</h1>
 
         <ol className="mt-8 flex flex-wrap gap-x-8 gap-y-2 border-b hairline pb-5" aria-label="Checkout progress">
           {STEPS.map((s, i) => (
-            <li key={s} className={`flex items-center gap-2 text-[11px] uppercase tracking-[0.24em] ${i === step ? 'text-charcoal' : i < step ? 'text-gold' : 'text-charcoal/40'}`} aria-current={i === step ? 'step' : undefined}>
-              <span className={`inline-flex h-5 w-5 items-center justify-center rounded-full border text-[10px] ${i < step ? 'border-gold bg-gold text-charcoal' : i === step ? 'border-charcoal' : 'border-charcoal/30'}`}>{i < step ? <Check size={11} strokeWidth={2} /> : i + 1}</span>
+            <li key={s} className={`flex items-center gap-2 text-[11px] uppercase tracking-[0.24em] ${i === step ? 'text-ivory' : i < step ? 'text-gold' : 'text-ivory/40'}`} aria-current={i === step ? 'step' : undefined}>
+              <span className={`inline-flex h-5 w-5 items-center justify-center rounded-full border text-[10px] ${i < step ? 'border-gold bg-gold text-black' : i === step ? 'border-ivory' : 'border-ivory/30'}`}>{i < step ? <Check size={11} strokeWidth={2} /> : i + 1}</span>
               {s}
             </li>
           ))}
@@ -112,7 +112,7 @@ export default function Checkout() {
                 <Field id="postcode" label="Postal code" error={errors.postcode}><input autoComplete="postal-code" {...inp('postcode')} /></Field>
                 <div className="sm:col-span-2"><Field id="country" label="Country"><select {...inp('country')}>{['United States', 'United Kingdom', 'Germany', 'France', 'Italy', 'Switzerland', 'United Arab Emirates', 'Türkiye', 'Other'].map((c) => <option key={c}>{c}</option>)}</select></Field></div>
                 <div className="sm:col-span-2"><Field id="notes" label="Delivery notes (optional)"><textarea rows={3} {...inp('notes', { className: 'field resize-none' })} /></Field></div>
-                <div className="sm:col-span-2 flex flex-wrap gap-4"><button type="button" onClick={() => setStep(0)} className="btn btn-charcoal">Back</button><button type="submit" className="btn btn-solid">Continue to Payment</button></div>
+                <div className="sm:col-span-2 flex flex-wrap gap-4"><button type="button" onClick={() => setStep(0)} className="btn btn-ivory">Back</button><button type="submit" className="btn btn-solid">Continue to Payment</button></div>
               </form>
             )}
             {step === 2 && (
@@ -121,19 +121,19 @@ export default function Checkout() {
                 <div className="sm:col-span-2"><Field id="cardNumber" label="Card number" error={errors.cardNumber}><input inputMode="numeric" autoComplete="cc-number" placeholder="0000 0000 0000 0000" {...inp('cardNumber')} /></Field></div>
                 <Field id="expiry" label="Expiry" error={errors.expiry}><input inputMode="numeric" autoComplete="cc-exp" placeholder="MM / YY" {...inp('expiry')} /></Field>
                 <Field id="cvc" label="Security code" error={errors.cvc}><input inputMode="numeric" autoComplete="cc-csc" placeholder="CVC" {...inp('cvc')} /></Field>
-                <p className="sm:col-span-2 text-[12px] text-charcoal/55">This is a demonstration checkout. No payment is taken and card details are never stored.</p>
-                <div className="sm:col-span-2 flex flex-wrap gap-4"><button type="button" onClick={() => setStep(1)} className="btn btn-charcoal">Back</button><button type="submit" className="btn btn-solid">Review Order</button></div>
+                <p className="sm:col-span-2 text-[12px] text-ivory/55">This is a demonstration checkout. No payment is taken and card details are never stored.</p>
+                <div className="sm:col-span-2 flex flex-wrap gap-4"><button type="button" onClick={() => setStep(1)} className="btn btn-ivory">Back</button><button type="submit" className="btn btn-solid">Review Order</button></div>
               </form>
             )}
             {step === 3 && (
               <div className="space-y-8">
                 <dl className="grid gap-6 sm:grid-cols-3 text-[14px]">
-                  <div><dt className="eyebrow text-[10px] text-charcoal/50">Contact</dt><dd className="mt-2">{form.email}<br />{form.phone}</dd><button type="button" onClick={() => setStep(0)} className="link-line mt-2 text-charcoal/60">Edit</button></div>
-                  <div><dt className="eyebrow text-[10px] text-charcoal/50">Deliver to</dt><dd className="mt-2">{form.firstName} {form.lastName}<br />{form.address1}{form.address2 && <>, {form.address2}</>}<br />{form.city} {form.postcode}<br />{form.country}</dd><button type="button" onClick={() => setStep(1)} className="link-line mt-2 text-charcoal/60">Edit</button></div>
-                  <div><dt className="eyebrow text-[10px] text-charcoal/50">Payment</dt><dd className="mt-2">Card ending {form.cardNumber.replace(/\s/g, '').slice(-4)}</dd><button type="button" onClick={() => setStep(2)} className="link-line mt-2 text-charcoal/60">Edit</button></div>
+                  <div><dt className="eyebrow text-[10px] text-ivory/50">Contact</dt><dd className="mt-2">{form.email}<br />{form.phone}</dd><button type="button" onClick={() => setStep(0)} className="link-line mt-2 text-ivory/60">Edit</button></div>
+                  <div><dt className="eyebrow text-[10px] text-ivory/50">Deliver to</dt><dd className="mt-2">{form.firstName} {form.lastName}<br />{form.address1}{form.address2 && <>, {form.address2}</>}<br />{form.city} {form.postcode}<br />{form.country}</dd><button type="button" onClick={() => setStep(1)} className="link-line mt-2 text-ivory/60">Edit</button></div>
+                  <div><dt className="eyebrow text-[10px] text-ivory/50">Payment</dt><dd className="mt-2">Card ending {form.cardNumber.replace(/\s/g, '').slice(-4)}</dd><button type="button" onClick={() => setStep(2)} className="link-line mt-2 text-ivory/60">Edit</button></div>
                 </dl>
                 <button type="button" onClick={place} disabled={busy} className="btn btn-solid w-full sm:w-auto">{busy ? 'Placing your order…' : `Place Order — ${money(totals.total)}`}</button>
-                <p className="text-[12px] text-charcoal/55">By placing an order you agree to our <Link to="/terms" className="underline underline-offset-4">Terms & Conditions</Link>.</p>
+                <p className="text-[12px] text-ivory/55">By placing an order you agree to our <Link to="/terms" className="underline underline-offset-4">Terms & Conditions</Link>.</p>
               </div>
             )}
           </div>
@@ -145,7 +145,7 @@ export default function Checkout() {
                 {cartLines.map(({ product, qty }) => (
                   <li key={product.id} className="flex items-center gap-4 py-4">
                     <Img image={product.images[0]} alt="" className="h-20 w-16 shrink-0" sizes="64px" />
-                    <div className="flex-1"><p className="text-[18px] leading-tight">{product.name}</p><p className="mt-1 text-[11px] uppercase tracking-[0.2em] text-charcoal/55">{sizeLabel(product)} × {qty}</p></div>
+                    <div className="flex-1"><p className="text-[18px] leading-tight">{product.name}</p><p className="mt-1 text-[11px] uppercase tracking-[0.2em] text-ivory/55">{sizeLabel(product)} × {qty}</p></div>
                     <p className="text-[14px] tabular-nums">{money(product.price * qty)}</p>
                   </li>
                 ))}

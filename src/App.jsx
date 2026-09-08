@@ -9,7 +9,8 @@ import Home from '@/pages/Home'
 const Collection = lazy(() => import('@/pages/Collection'))
 const Product = lazy(() => import('@/pages/Product'))
 const Bespoke = lazy(() => import('@/pages/Bespoke'))
-const OurStory = lazy(() => import('@/pages/OurStory'))
+const About = lazy(() => import('@/pages/About'))
+const Craftsmanship = lazy(() => import('@/pages/Craftsmanship'))
 const Journal = lazy(() => import('@/pages/Journal'))
 const JournalArticle = lazy(() => import('@/pages/JournalArticle'))
 const Contact = lazy(() => import('@/pages/Contact'))
@@ -33,7 +34,9 @@ export default function App() {
             <Route path="/new-arrivals" element={<Collection newArrivals />} />
             <Route path="/collection/:slug" element={<Product />} />
             <Route path="/bespoke" element={<Bespoke />} />
-            <Route path="/our-story" element={<OurStory />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/our-story" element={<Navigate to="/about" replace />} />
+            <Route path="/craftsmanship" element={<Craftsmanship />} />
             <Route path="/journal" element={<Journal />} />
             <Route path="/journal/:slug" element={<JournalArticle />} />
             <Route path="/contact" element={<Contact />} />

@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 
 export default function Breadcrumbs({ items, tone = 'dark' }) {
-  const c = tone === 'dark' ? 'text-charcoal/55 hover:text-charcoal' : 'text-ivory/55 hover:text-ivory'
+  const c = tone === 'dark' ? 'text-ivory/55 hover:text-ivory' : 'text-ivory/55 hover:text-ivory'
   return (
     <nav aria-label="Breadcrumb" className="eyebrow">
       <ol className="flex flex-wrap items-center gap-x-3 gap-y-1">
@@ -11,7 +11,7 @@ export default function Breadcrumbs({ items, tone = 'dark' }) {
             {it.to ? (
               <Link to={it.to} className={`${c} transition-colors`}>{it.label}</Link>
             ) : (
-              <span aria-current="page" className={tone === 'dark' ? 'text-charcoal' : 'text-ivory'}>{it.label}</span>
+              <span aria-current="page" className={tone === 'dark' ? 'text-ivory' : 'text-ivory'}>{it.label}</span>
             )}
           </li>
         ))}

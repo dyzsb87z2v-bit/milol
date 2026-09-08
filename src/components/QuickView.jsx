@@ -20,7 +20,7 @@ export default function QuickView() {
   return (
     <Modal open={Boolean(product)} onClose={closeQuickView} label={`Quick view: ${product.name}`}>
       <div className="grid md:grid-cols-2">
-        <div className="relative bg-sand/30">
+        <div className="relative bg-ivory/5">
           <Img image={product.images[img]} alt={`${product.name} detail`} className="aspect-[4/5] md:h-full" sizes="(min-width: 768px) 520px, 100vw" />
           <div className="absolute bottom-4 left-4 flex gap-2">
             {product.images.map((im, i) => (
@@ -32,15 +32,15 @@ export default function QuickView() {
         </div>
         <div className="relative flex flex-col p-7 md:p-10">
           <button type="button" onClick={closeQuickView} className="icon-btn absolute right-3 top-3" aria-label="Close quick view"><X size={20} strokeWidth={1.25} /></button>
-          <p className="eyebrow text-gold">{product.collection}</p>
+          <p className="eyebrow">{product.collection}</p>
           <h2 className="mt-3 text-[clamp(30px,3.4vw,42px)] pr-10">{product.name}</h2>
           <p className="mt-3 text-[18px] tabular-nums">{money(product.price)}</p>
-          <p className="mt-5 text-[15px] leading-relaxed text-charcoal/70">{product.short}</p>
+          <p className="mt-5 text-[15px] leading-relaxed text-ivory/60">{product.short}</p>
           <dl className="mt-6 grid grid-cols-2 gap-x-6 gap-y-3 text-[13px]">
-            <div><dt className="eyebrow text-[10px] text-charcoal/50">Origin</dt><dd className="mt-1">{product.origin}</dd></div>
-            <div><dt className="eyebrow text-[10px] text-charcoal/50">Size</dt><dd className="mt-1">{sizeLabel(product)}</dd></div>
-            <div><dt className="eyebrow text-[10px] text-charcoal/50">Material</dt><dd className="mt-1">{product.materials}</dd></div>
-            <div><dt className="eyebrow text-[10px] text-charcoal/50">Availability</dt><dd className="mt-1">{AVAILABILITY_LABEL[product.availability]}</dd></div>
+            <div><dt className="eyebrow text-[10px] text-ivory/50">Origin</dt><dd className="mt-1">{product.origin}</dd></div>
+            <div><dt className="eyebrow text-[10px] text-ivory/50">Size</dt><dd className="mt-1">{sizeLabel(product)}</dd></div>
+            <div><dt className="eyebrow text-[10px] text-ivory/50">Material</dt><dd className="mt-1">{product.materials}</dd></div>
+            <div><dt className="eyebrow text-[10px] text-ivory/50">Availability</dt><dd className="mt-1">{AVAILABILITY_LABEL[product.availability]}</dd></div>
           </dl>
           <div className="mt-8 flex flex-wrap items-center gap-4">
             <QuantityStepper value={qty} onChange={setQty} />

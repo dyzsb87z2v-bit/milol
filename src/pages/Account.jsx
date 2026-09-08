@@ -20,7 +20,7 @@ function SignIn({ onDone }) {
   }
   return (
     <form onSubmit={submit} noValidate className="max-w-lg">
-      <p className="text-[16px] leading-relaxed text-charcoal/70">Create a MILAEDIA account to follow orders, keep addresses and save the pieces you love. This demonstration keeps your details on this device only.</p>
+      <p className="text-[16px] leading-relaxed text-ivory/60">Create a MILAEDIA account to follow orders, keep addresses and save the pieces you love. This demonstration keeps your details on this device only.</p>
       <div className="mt-8 grid gap-6 sm:grid-cols-2">
         <div><label htmlFor="a-first" className="label">First name</label><input id="a-first" className="field" autoComplete="given-name" value={form.firstName} onChange={(e) => setForm({ ...form, firstName: e.target.value })} /></div>
         <div><label htmlFor="a-last" className="label">Last name</label><input id="a-last" className="field" autoComplete="family-name" value={form.lastName} onChange={(e) => setForm({ ...form, lastName: e.target.value })} /></div>
@@ -52,7 +52,7 @@ export default function Account() {
   return (
     <>
       <PageHero eyebrow="Account" title={account ? `Welcome, ${account.firstName}.` : 'Your Account'} />
-      <section data-tone="light" className="bg-ivory text-charcoal pb-24 md:pb-36">
+      <section data-tone="dark" className="bg-black text-ivory pb-24 md:pb-36">
         <div className="container-site">
           {!account ? (
             <SignIn onDone={(a) => { setAccount(a); toast(`Welcome, ${a.firstName}.`) }} />
@@ -61,10 +61,10 @@ export default function Account() {
               <nav className="lg:col-span-3" aria-label="Account sections">
                 <ul className="flex gap-6 border-b hairline lg:flex-col lg:gap-0 lg:border-0">
                   {TABS.map((t, i) => (
-                    <li key={t}><button type="button" onClick={() => setTab(i)} aria-current={tab === i ? 'page' : undefined} className={`block py-3 text-[12px] uppercase tracking-[0.24em] ${tab === i ? 'text-charcoal border-b border-charcoal lg:border-0' : 'text-charcoal/50 hover:text-charcoal'}`}>{t}</button></li>
+                    <li key={t}><button type="button" onClick={() => setTab(i)} aria-current={tab === i ? 'page' : undefined} className={`block py-3 text-[12px] uppercase tracking-[0.24em] ${tab === i ? 'text-ivory border-b border-ivory lg:border-0' : 'text-ivory/50 hover:text-ivory'}`}>{t}</button></li>
                   ))}
-                  <li className="lg:mt-6"><Link to="/wishlist" className="block py-3 text-[12px] uppercase tracking-[0.24em] text-charcoal/50 hover:text-charcoal">Wishlist</Link></li>
-                  <li><button type="button" onClick={() => { setAccount(null); toast('Signed out') }} className="block py-3 text-[12px] uppercase tracking-[0.24em] text-charcoal/50 hover:text-charcoal">Sign out</button></li>
+                  <li className="lg:mt-6"><Link to="/wishlist" className="block py-3 text-[12px] uppercase tracking-[0.24em] text-ivory/50 hover:text-ivory">Wishlist</Link></li>
+                  <li><button type="button" onClick={() => { setAccount(null); toast('Signed out') }} className="block py-3 text-[12px] uppercase tracking-[0.24em] text-ivory/50 hover:text-ivory">Sign out</button></li>
                 </ul>
               </nav>
               <div className="lg:col-span-8 lg:col-start-5">
@@ -75,7 +75,7 @@ export default function Account() {
                     {orders.map((o) => (
                       <li key={o.id} className="py-7">
                         <div className="flex flex-wrap items-baseline justify-between gap-3">
-                          <div><p className="eyebrow text-gold">Order {o.id}</p><p className="mt-1 text-[13px] text-charcoal/60">{dateLong(o.placedAt)} · {o.items.length} {o.items.length === 1 ? 'piece' : 'pieces'} · In preparation</p></div>
+                          <div><p className="eyebrow">Order {o.id}</p><p className="mt-1 text-[13px] text-ivory/60">{dateLong(o.placedAt)} · {o.items.length} {o.items.length === 1 ? 'piece' : 'pieces'} · In preparation</p></div>
                           <p className="tabular-nums">{money(o.totals.total)}</p>
                         </div>
                         <ul className="mt-5 flex gap-3">{o.items.map((it) => <li key={it.id}><Link to={`/collection/${it.slug}`}><Img image={it.image} alt={it.name} className="h-20 w-16" sizes="64px" /></Link></li>)}</ul>
@@ -89,7 +89,7 @@ export default function Account() {
                     {(account.addresses || []).length === 0 && !addr && <EmptyState compact title="No saved addresses" text="Save a delivery address to speed up checkout." cta={{ label: 'Add an address' }} onCta={() => setAddr({ label: 'Home', address1: '', address2: '', city: '', postcode: '', country: 'United States' })} />}
                     <ul className="grid gap-5 sm:grid-cols-2">
                       {(account.addresses || []).map((a, i) => (
-                        <li key={i} className="border hairline p-6 text-[14px] leading-relaxed"><p className="eyebrow text-gold">{a.label}</p><p className="mt-3">{a.address1}{a.address2 && <>, {a.address2}</>}<br />{a.city} {a.postcode}<br />{a.country}</p><button type="button" onClick={() => removeAddr(i)} className="link-line mt-4 text-charcoal/60">Remove</button></li>
+                        <li key={i} className="border hairline p-6 text-[14px] leading-relaxed"><p className="eyebrow">{a.label}</p><p className="mt-3">{a.address1}{a.address2 && <>, {a.address2}</>}<br />{a.city} {a.postcode}<br />{a.country}</p><button type="button" onClick={() => removeAddr(i)} className="link-line mt-4 text-ivory/60">Remove</button></li>
                       ))}
                     </ul>
                     {addr ? (
@@ -99,10 +99,10 @@ export default function Account() {
                         <div className="sm:col-span-2"><label htmlFor="ad-1" className="label">Address</label><input id="ad-1" className="field" value={addr.address1} onChange={(e) => setAddr({ ...addr, address1: e.target.value })} /></div>
                         <div><label htmlFor="ad-city" className="label">City</label><input id="ad-city" className="field" value={addr.city} onChange={(e) => setAddr({ ...addr, city: e.target.value })} /></div>
                         <div><label htmlFor="ad-post" className="label">Postal code</label><input id="ad-post" className="field" value={addr.postcode} onChange={(e) => setAddr({ ...addr, postcode: e.target.value })} /></div>
-                        <div className="sm:col-span-2 flex gap-4"><button type="submit" className="btn btn-solid">Save address</button><button type="button" onClick={() => setAddr(null)} className="btn btn-charcoal">Cancel</button></div>
+                        <div className="sm:col-span-2 flex gap-4"><button type="submit" className="btn btn-solid">Save address</button><button type="button" onClick={() => setAddr(null)} className="btn btn-ivory">Cancel</button></div>
                       </form>
                     ) : (account.addresses || []).length > 0 && (
-                      <button type="button" onClick={() => setAddr({ label: 'Home', address1: '', address2: '', city: '', postcode: '', country: 'United States' })} className="btn btn-charcoal mt-8">Add an address</button>
+                      <button type="button" onClick={() => setAddr({ label: 'Home', address1: '', address2: '', city: '', postcode: '', country: 'United States' })} className="btn btn-ivory mt-8">Add an address</button>
                     )}
                   </div>
                 )}

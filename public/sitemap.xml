@@ -4,7 +4,8 @@
   <url><loc>https://milaedia.com/collection</loc><priority>0.7</priority></url>
   <url><loc>https://milaedia.com/new-arrivals</loc><priority>0.7</priority></url>
   <url><loc>https://milaedia.com/bespoke</loc><priority>0.7</priority></url>
-  <url><loc>https://milaedia.com/our-story</loc><priority>0.7</priority></url>
+  <url><loc>https://milaedia.com/about</loc><priority>0.7</priority></url>
+  <url><loc>https://milaedia.com/craftsmanship</loc><priority>0.7</priority></url>
   <url><loc>https://milaedia.com/journal</loc><priority>0.7</priority></url>
   <url><loc>https://milaedia.com/contact</loc><priority>0.7</priority></url>
   <url><loc>https://milaedia.com/shipping-returns</loc><priority>0.7</priority></url>
@@ -19,7 +20,8 @@
   <url><loc>https://milaedia.com/collection/heriz-geometry</loc><priority>0.8</priority></url>
   <url><loc>https://milaedia.com/collection/nain-ivory-lattice</loc><priority>0.8</priority></url>
   <url><loc>https://milaedia.com/collection/konya-dusk</loc><priority>0.8</priority></url>
-  <url><loc>https://milaedia.com/journal/how-to-choose-a-rug-for-a-contemporary-interior</loc><lastmod>2026-06-12</lastmod><priority>0.6</priority></url>
+  <url><loc>https://milaedia.com/journal/a-guide-to-handmade-turkish-rugs</loc><lastmod>2026-07-21</lastmod><priority>0.6</priority></url>
+  <url><loc>https://milaedia.com/journal/how-to-choose-a-carpet-for-a-modern-interior</loc><lastmod>2026-06-12</lastmod><priority>0.6</priority></url>
   <url><loc>https://milaedia.com/journal/the-language-of-persian-motifs</loc><lastmod>2026-04-28</lastmod><priority>0.6</priority></url>
   <url><loc>https://milaedia.com/journal/caring-for-a-handmade-carpet</loc><lastmod>2026-03-03</lastmod><priority>0.6</priority></url>
   <url><loc>https://milaedia.com/journal/knot-density</loc><lastmod>2026-02-10</lastmod><priority>0.6</priority></url>

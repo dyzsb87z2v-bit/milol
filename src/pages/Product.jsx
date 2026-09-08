@@ -29,14 +29,14 @@ function ZoomImage({ image, alt }) {
   return (
     <div
       ref={ref}
-      className="relative overflow-hidden bg-sand/30"
+      className="relative overflow-hidden bg-ivory/5"
       onMouseEnter={() => setZoom(true)}
       onMouseLeave={() => setZoom(false)}
       onMouseMove={move}
       style={{ '--zx': '50%', '--zy': '50%' }}
     >
       <Img key={image.src} image={image} alt={alt} className="aspect-[4/5]" priority sizes="(min-width: 1024px) 55vw, 100vw" imgClassName={`transition-transform duration-500 ease-luxe ${zoom ? 'scale-[1.8]' : ''}`} />
-      <span className="pointer-events-none absolute bottom-3 right-3 bg-ivory/85 px-2.5 py-1 text-[10px] uppercase tracking-[0.22em] text-charcoal/70">Hover to zoom</span>
+      <span className="pointer-events-none absolute bottom-3 right-3 bg-black/70 px-2.5 py-1 text-[10px] uppercase tracking-[0.22em] text-ivory/60">Hover to zoom</span>
     </div>
   )
 }
@@ -77,7 +77,7 @@ export default function Product() {
 
   return (
     <>
-      <article data-tone="light" className="bg-ivory text-charcoal pt-[calc(var(--header-h)+32px)] pb-24 md:pb-32">
+      <article data-tone="dark" className="bg-black text-ivory pt-[calc(var(--header-h)+32px)] pb-24 md:pb-32">
         <div className="container-site">
           <Breadcrumbs items={[{ label: 'Home', to: '/' }, { label: 'Collection', to: '/collection' }, { label: product.name }]} />
           <div className="mt-8 grid gap-12 lg:grid-cols-12 lg:gap-16">
@@ -88,7 +88,7 @@ export default function Product() {
               <ul className="mt-4 flex gap-3" aria-label="Gallery thumbnails">
                 {product.images.map((im, i) => (
                   <li key={i}>
-                    <button type="button" onClick={() => setActive(i)} aria-pressed={active === i} aria-label={`Show image ${i + 1}`} className={`block w-20 overflow-hidden border transition-colors ${active === i ? 'border-charcoal' : 'border-transparent hover:border-charcoal/40'}`}>
+                    <button type="button" onClick={() => setActive(i)} aria-pressed={active === i} aria-label={`Show image ${i + 1}`} className={`block w-20 overflow-hidden border transition-colors ${active === i ? 'border-ivory' : 'border-transparent hover:border-ivory/40'}`}>
                       <Img image={im} alt="" className="aspect-[4/5]" sizes="80px" />
                     </button>
                   </li>
@@ -98,25 +98,25 @@ export default function Product() {
 
             <div className="lg:col-span-5">
               <div className="lg:sticky lg:top-[calc(var(--header-h)+24px)]">
-                <p className="eyebrow text-gold">{product.collection}</p>
+                <p className="eyebrow">{product.collection}</p>
                 <h1 className="mt-4 text-[clamp(36px,4.4vw,58px)]">{product.name}</h1>
                 <p className="mt-4 text-[22px] tabular-nums">{money(product.price)}</p>
-                <p className="mt-2 text-[12px] uppercase tracking-[0.2em] text-charcoal/55">{AVAILABILITY_LABEL[product.availability]} · {product.delivery}</p>
-                <p className="mt-1 text-[11px] uppercase tracking-[0.2em] text-charcoal/40">Ref. {product.sku}</p>
+                <p className="mt-2 text-[12px] uppercase tracking-[0.2em] text-ivory/55">{AVAILABILITY_LABEL[product.availability]} · {product.delivery}</p>
+                <p className="mt-1 text-[11px] uppercase tracking-[0.2em] text-ivory/40">Ref. {product.sku}</p>
 
                 <dl className="mt-8 grid grid-cols-2 gap-x-6 gap-y-4 border-y hairline py-6 text-[14px]">
-                  <div><dt className="eyebrow text-[10px] text-charcoal/50">Origin</dt><dd className="mt-1">{product.origin}</dd></div>
-                  <div><dt className="eyebrow text-[10px] text-charcoal/50">Dimensions</dt><dd className="mt-1">{sizeLabel(product)}</dd></div>
-                  <div><dt className="eyebrow text-[10px] text-charcoal/50">Materials</dt><dd className="mt-1">{product.materials}</dd></div>
-                  <div><dt className="eyebrow text-[10px] text-charcoal/50">Weaving</dt><dd className="mt-1">{product.weaving}</dd></div>
-                  <div><dt className="eyebrow text-[10px] text-charcoal/50">Knot density</dt><dd className="mt-1">{product.density}</dd></div>
-                  <div><dt className="eyebrow text-[10px] text-charcoal/50">Era</dt><dd className="mt-1">{product.era}</dd></div>
+                  <div><dt className="eyebrow text-[10px] text-ivory/50">Origin</dt><dd className="mt-1">{product.origin}</dd></div>
+                  <div><dt className="eyebrow text-[10px] text-ivory/50">Dimensions</dt><dd className="mt-1">{sizeLabel(product)}</dd></div>
+                  <div><dt className="eyebrow text-[10px] text-ivory/50">Materials</dt><dd className="mt-1">{product.materials}</dd></div>
+                  <div><dt className="eyebrow text-[10px] text-ivory/50">Weaving</dt><dd className="mt-1">{product.weaving}</dd></div>
+                  <div><dt className="eyebrow text-[10px] text-ivory/50">Knot density</dt><dd className="mt-1">{product.density}</dd></div>
+                  <div><dt className="eyebrow text-[10px] text-ivory/50">Era</dt><dd className="mt-1">{product.era}</dd></div>
                   <div className="col-span-2">
-                    <dt className="eyebrow text-[10px] text-charcoal/50">Colour palette</dt>
+                    <dt className="eyebrow text-[10px] text-ivory/50">Colour palette</dt>
                     <dd className="mt-2 flex items-center gap-4">
                       {product.colors.map((c, i) => (
                         <span key={c} className="inline-flex items-center gap-2 text-[13px]">
-                          <span className="inline-block h-4 w-4 rounded-full border border-charcoal/15" style={{ background: product.swatches[i] }} aria-hidden="true" />{c}
+                          <span className="inline-block h-4 w-4 rounded-full border border-ivory/15" style={{ background: product.swatches[i] }} aria-hidden="true" />{c}
                         </span>
                       ))}
                     </dd>
@@ -132,28 +132,28 @@ export default function Product() {
                     <Heart size={18} strokeWidth={1.25} className={wished ? 'fill-gold text-gold' : ''} />
                   </button>
                 </div>
-                {reserved && <p className="mt-4 text-[13px] text-charcoal/60">This piece is currently reserved. <Link to={`/contact?topic=piece&piece=${encodeURIComponent(`${product.name}, ${product.sku}`)}`} className="underline underline-offset-4">Enquire</Link> about similar rugs or a bespoke commission.</p>}
+                {reserved && <p className="mt-4 text-[13px] text-ivory/60">This piece is currently reserved. <Link to={`/contact?topic=piece&piece=${encodeURIComponent(`${product.name}, ${product.sku}`)}`} className="underline underline-offset-4">Enquire</Link> about similar rugs or a bespoke commission.</p>}
 
-                <ul className="mt-6 grid grid-cols-3 gap-3 border-y hairline py-4 text-center text-[10px] uppercase tracking-[0.2em] text-charcoal/60">
+                <ul className="mt-6 grid grid-cols-3 gap-3 border-y hairline py-4 text-center text-[10px] uppercase tracking-[0.2em] text-ivory/60">
                   <li>White-glove delivery</li><li>14-day returns</li><li>Certified authentic</li>
                 </ul>
 
                 <div className="mt-6 grid gap-3 sm:grid-cols-2">
                   {!reserved && (
-                    <Link to={`/contact?topic=video&piece=${encodeURIComponent(`${product.name}, ${product.sku}`)}`} className="flex items-start gap-3 border hairline p-4 transition-colors hover:border-charcoal">
+                    <Link to={`/contact?topic=video&piece=${encodeURIComponent(`${product.name}, ${product.sku}`)}`} className="flex items-start gap-3 border hairline p-4 transition-colors hover:border-ivory">
                       <Video size={18} strokeWidth={1} className="mt-0.5 shrink-0 text-gold" aria-hidden="true" />
-                      <span><span className="block text-[12px] uppercase tracking-[0.2em]">A closer look</span><span className="mt-1 block text-[13px] leading-snug text-charcoal/65">Request a private video of this exact piece.</span></span>
+                      <span><span className="block text-[12px] uppercase tracking-[0.2em]">A closer look</span><span className="mt-1 block text-[13px] leading-snug text-ivory/65">Request a private video of this exact piece.</span></span>
                     </Link>
                   )}
-                  <Link to={`/contact?topic=home&piece=${encodeURIComponent(`${product.name}, ${product.sku}`)}`} className="flex items-start gap-3 border hairline p-4 transition-colors hover:border-charcoal">
+                  <Link to={`/contact?topic=home&piece=${encodeURIComponent(`${product.name}, ${product.sku}`)}`} className="flex items-start gap-3 border hairline p-4 transition-colors hover:border-ivory">
                     <Home size={18} strokeWidth={1} className="mt-0.5 shrink-0 text-gold" aria-hidden="true" />
-                    <span><span className="block text-[12px] uppercase tracking-[0.2em]">See it in your room</span><span className="mt-1 block text-[13px] leading-snug text-charcoal/65">Book the private home experience, at true size.</span></span>
+                    <span><span className="block text-[12px] uppercase tracking-[0.2em]">See it in your room</span><span className="mt-1 block text-[13px] leading-snug text-ivory/65">Book the private home experience, at true size.</span></span>
                   </Link>
                 </div>
 
                 <div className="mt-10">
                   <h2 className="font-sans text-[12px] uppercase tracking-[0.24em] font-medium">Description</h2>
-                  <p className="mt-4 text-[15px] leading-[1.85] text-charcoal/75">{product.description}</p>
+                  <p className="mt-4 text-[15px] leading-[1.85] text-ivory/75">{product.description}</p>
                 </div>
 
                 <div className="mt-8">
@@ -168,7 +168,7 @@ export default function Product() {
                   <ShieldCheck size={22} strokeWidth={1} className="shrink-0 text-gold" aria-hidden="true" />
                   <div>
                     <h2 className="font-sans text-[12px] uppercase tracking-[0.24em] font-medium">Certificate of Authenticity</h2>
-                    <p className="mt-2 text-[14px] leading-relaxed text-charcoal/70">Each MILAEDIA carpet is accompanied by a signed certificate recording its origin, weaver or workshop, materials, knot density, dyes and dimensions, together with the atelier photographs from this page. The certificate is registered to reference {product.sku} and transfers with the carpet.</p>
+                    <p className="mt-2 text-[14px] leading-relaxed text-ivory/60">Each MILAEDIA carpet is accompanied by a signed certificate recording its origin, weaver or workshop, materials, knot density, dyes and dimensions, together with the atelier photographs from this page. The certificate is registered to reference {product.sku} and transfers with the carpet.</p>
                   </div>
                 </div>
               </div>
@@ -177,7 +177,7 @@ export default function Product() {
         </div>
       </article>
 
-      <div data-tone="light" className="bg-ivory text-charcoal">
+      <div data-tone="dark" className="bg-black text-ivory">
         <Reveal><ProductRow id="related" eyebrow="You may also like" title="Related Rugs" products={related(product)} /></Reveal>
         {recentItems.length > 0 && <Reveal><ProductRow id="recent" eyebrow="Recently viewed" title="Continue Looking" products={recentItems} /></Reveal>}
       </div>

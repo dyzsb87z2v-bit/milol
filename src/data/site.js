@@ -19,17 +19,64 @@ export const BRAND = {
 export const NAV = [
   { label: 'Home', to: '/' },
   { label: 'Collection', to: '/collection' },
-  { label: 'New Arrivals', to: '/new-arrivals' },
-  { label: 'Bespoke', to: '/bespoke' },
-  { label: 'Our Story', to: '/our-story' },
+  { label: 'Craftsmanship', to: '/craftsmanship' },
   { label: 'Journal', to: '/journal' },
+  { label: 'About', to: '/about' },
   { label: 'Contact', to: '/contact' },
 ]
 
+export const SECONDARY_NAV = [
+  { label: 'New Arrivals', to: '/new-arrivals' },
+  { label: 'Bespoke', to: '/bespoke' },
+  { label: 'Private Home Experience', to: '/bespoke#home-experience' },
+  { label: 'Wishlist', to: '/wishlist' },
+  { label: 'Account', to: '/account' },
+]
+
+export const LANGUAGES = [
+  { code: 'en', label: 'English', short: 'EN' },
+  { code: 'de', label: 'Deutsch', short: 'DE' },
+  { code: 'fa', label: 'فارسی', short: 'FA' },
+]
+
+/** The three editorial families every piece belongs to. */
+export const FAMILIES = [
+  { id: 'persian-heritage', name: 'Persian Heritage', text: 'The court weaves of Isfahan, Tabriz, Kashan and Heriz: medallions, gardens and vines drawn at densities that approach painting.', image: { src: '/img/tabriz-1.webp', small: '/img/tabriz-1-sm.webp' }, alt: 'A classical Persian medallion carpet suspended in a dark hall' },
+  { id: 'turkish-elegance', name: 'Turkish Elegance', text: 'Anatolia’s bold geometry and hand-spun, plant-dyed wool. Village looms with a palette taken from the plateau itself.', image: { src: '/img/anatolian-1.webp', small: '/img/anatolian-1-sm.webp' }, alt: 'A geometric Anatolian carpet in terracotta and umber' },
+  { id: 'contemporary-icons', name: 'Contemporary Icons', text: 'Pale, tonal pieces woven to old standards for modern rooms: Nain lattices and over-scaled Oushak blooms.', image: { src: '/img/oushak-1.webp', small: '/img/oushak-1-sm.webp' }, alt: 'A pale Oushak carpet with over-scaled floral motifs' },
+]
+
+export const TESTIMONIALS = [
+  { quote: 'The Tabriz arrived rolled in cotton and was laid before we had finished our coffee. Six months on, the room still turns around it.', name: 'A. Lindqvist', place: 'Private residence, Stockholm' },
+  { quote: 'We asked for a video of the exact piece and received a film of it under evening light, front and back. Nobody else does this.', name: 'M. Ferrante', place: 'Interior architect, Milan' },
+  { quote: 'They brought three carpets to the apartment and told us, honestly, that none of them was right. The fourth was. That is why we returned.', name: 'S. & R. Weber', place: 'Charlottenburg, Berlin' },
+  { quote: 'A bespoke commission for a hotel lobby, delivered in eight months with photographs from the loom every few weeks. Faultless.', name: 'D. Haddad', place: 'Hospitality project, Dubai' },
+  { quote: 'The certificate, the provenance, the knot count. It is the first time buying a rug felt like buying a work of art.', name: 'C. Marchetti', place: 'Collector, Zürich' },
+]
+
+export const GALLERY = [
+  { image: { src: '/img/atelier-salon.webp', small: '/img/atelier-salon-sm.webp' }, alt: 'A Berlin salon at dusk with a large medallion carpet', tall: true },
+  { image: { src: '/img/isfahan-1.webp', small: '/img/isfahan-1-sm.webp' }, alt: 'Isfahan Silk Garden from above' },
+  { image: { src: '/img/library-rug.webp', small: '/img/library-rug-sm.webp' }, alt: 'A medallion carpet in the gallery library' },
+  { image: { src: '/img/silk-cocoons.webp', small: '/img/silk-cocoons-sm.webp' }, alt: 'Silk cocoons with their threads drawn upward', tall: true },
+  { image: { src: '/img/intro-room.webp', small: '/img/intro-room-sm.webp' }, alt: 'A handmade carpet in a sunlit modern living room' },
+  { image: { src: '/img/bespoke-hall.webp', small: '/img/bespoke-hall-sm.webp' }, alt: 'A finished carpet suspended in the atelier' },
+  { image: { src: '/img/story-desert.webp', small: '/img/story-desert-sm.webp' }, alt: 'A crimson carpet laid across desert rock at dusk' },
+  { image: { src: '/img/silk-hand.webp', small: '/img/silk-hand-sm.webp' }, alt: 'An artisan drawing silk from a cocoon', tall: true },
+]
+
+export const ASSURANCES = [
+  { title: 'Insured worldwide delivery', text: 'Rolled, never folded, in a case cut to size. White-glove placement in Europe.' },
+  { title: 'Certificate of authenticity', text: 'Origin, materials, knot density and dimensions, signed and registered to the piece.' },
+  { title: 'Secure payment', text: 'Card, bank transfer or invoice. Card details never touch our servers.' },
+  { title: 'Fourteen-day returns', text: 'Live with a stock piece for two weeks. If it is not right, we collect it.' },
+]
+
+
 export const CARE_LINKS = [
   { label: 'Shipping & Returns', to: '/shipping-returns' },
-  { label: 'How Pieces Are Chosen', to: '/our-story#how-we-choose' },
-  { label: 'Certificate of Authenticity', to: '/our-story#authenticity' },
+  { label: 'How Pieces Are Chosen', to: '/about#how-we-choose' },
+  { label: 'Certificate of Authenticity', to: '/about#authenticity' },
   { label: 'A Closer Look — Private Video', to: '/contact?topic=video' },
   { label: 'Private Home Experience', to: '/bespoke#home-experience' },
   { label: 'Care Guide', to: '/journal/caring-for-a-handmade-carpet' },
@@ -48,7 +95,7 @@ export const SERVICES = [
   { title: 'Interior consultation', text: 'Working with architects and designers on scale, palette and placement. A rug that is right in the gallery can be wrong in the room; we would rather establish that before it is delivered.', to: '/contact?topic=consultation' },
   { title: 'A closer look', text: 'A filmed presentation of the exact piece you are considering — the pile under moving light, the reverse, the selvedge, the colour as it truly reads. Sent to you personally, not published anywhere.', to: '/contact?topic=video' },
   { title: 'International shipping', text: 'Fully insured, documented and tracked, with customs handled at both ends. Pieces travel rolled, never folded, in a rigid case cut to size.', to: '/shipping-returns' },
-  { title: 'Authenticity & provenance', text: 'Written condition reports, dating, regional attribution and, where the history is known, the record of previous ownership. We say plainly when a piece cannot be attributed with confidence.', to: '/our-story#how-we-choose' },
+  { title: 'Authenticity & provenance', text: 'Written condition reports, dating, regional attribution and, where the history is known, the record of previous ownership. We say plainly when a piece cannot be attributed with confidence.', to: '/about#how-we-choose' },
 ]
 
 /** Trust pillars shown on the home page. */

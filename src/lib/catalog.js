@@ -8,6 +8,14 @@ export const SORTS = [
 ]
 
 export const FILTERS = {
+  family: {
+    label: 'Edit',
+    options: [
+      { id: 'persian-heritage', label: 'Persian Heritage', test: (p) => p.family === 'persian-heritage' },
+      { id: 'turkish-elegance', label: 'Turkish Elegance', test: (p) => p.family === 'turkish-elegance' },
+      { id: 'contemporary-icons', label: 'Contemporary Icons', test: (p) => p.family === 'contemporary-icons' },
+    ],
+  },
   collection: {
     label: 'Collection',
     options: [

@@ -12,7 +12,7 @@ export default function ProductRow({ title, eyebrow, products, id }) {
       <div className="container-site">
         <div className="flex items-end justify-between gap-6">
           <div>
-            {eyebrow && <p className="eyebrow text-gold">{eyebrow}</p>}
+            {eyebrow && <p className="eyebrow">{eyebrow}</p>}
             <h2 id={id} className="mt-4 text-[clamp(30px,4vw,46px)]">{title}</h2>
           </div>
           <div className="hidden gap-2 md:flex">
@@ -20,7 +20,7 @@ export default function ProductRow({ title, eyebrow, products, id }) {
             <button type="button" onClick={() => scroll(1)} className="icon-btn border hairline" aria-label="Scroll right"><ArrowRight size={16} strokeWidth={1.25} /></button>
           </div>
         </div>
-        <div ref={ref} className="rail -mx-6 mt-10 flex gap-5 overflow-x-auto px-6 pb-2 md:-mx-12 md:px-12 xl:-mx-[72px] xl:px-[72px]">
+        <div ref={ref} className="rail -mx-[22px] mt-10 flex gap-5 overflow-x-auto px-[22px] pb-2 md:-mx-12 md:px-12 xl:-mx-20 xl:px-20">
           {products.map((p) => (
             <div key={p.id} className="w-[72vw] shrink-0 xs:w-[58vw] md:w-[34vw] xl:w-[23vw]">
               <ProductCard product={p} />

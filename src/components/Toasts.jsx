@@ -7,7 +7,7 @@ export default function Toasts() {
   return (
     <div className="pointer-events-none fixed bottom-6 left-1/2 z-[120] flex w-[min(92vw,420px)] -translate-x-1/2 flex-col gap-2" aria-live="polite" aria-atomic="false">
       {toasts.map((t) => (
-        <div key={t.id} className="toast pointer-events-auto flex items-center gap-4 bg-charcoal px-5 py-4 text-ivory shadow-2xl">
+        <div key={t.id} className="toast pointer-events-auto flex items-center gap-4 border hairline-gold bg-charcoal px-5 py-4 text-ivory shadow-2xl">
           <p className="flex-1 text-[13px] leading-snug">{t.message}</p>
           {t.action && (t.action.to ? (
             <Link to={t.action.to} onClick={() => dismissToast(t.id)} className="link-line text-gold">{t.action.label}</Link>

@@ -8,13 +8,13 @@ export default function EmptyState({ title, text, cta = { label: 'Explore the co
         <path d="M14 18h28M14 24h28M14 30h28M14 36h28" stroke="currentColor" strokeWidth="0.8" opacity="0.5" />
       </svg>
       <h2 className="mt-8 text-[clamp(30px,4vw,44px)]">{title}</h2>
-      {text && <p className="mt-4 mx-auto max-w-md text-charcoal/65 leading-relaxed">{text}</p>}
+      {text && <p className="mt-4 mx-auto max-w-md text-ivory/65 leading-relaxed">{text}</p>}
       {cta && (
         <div className="mt-10">
           {onCta ? (
-            <button type="button" onClick={onCta} className="btn btn-charcoal">{cta.label}</button>
+            <button type="button" onClick={onCta} className="btn btn-ivory">{cta.label}</button>
           ) : (
-            <Link to={cta.to} className="btn btn-charcoal">{cta.label}</Link>
+            <Link to={cta.to} className="btn btn-ivory">{cta.label}</Link>
           )}
         </div>
       )}

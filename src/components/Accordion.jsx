@@ -24,7 +24,7 @@ export function AccordionItem({ title, children, defaultOpen = false }) {
         style={{ gridTemplateRows: open ? '1fr' : '0fr' }}
       >
         <div className="overflow-hidden">
-          <div className="pb-6 text-[15px] leading-relaxed text-charcoal/70">{children}</div>
+          <div className="pb-6 text-[15px] leading-relaxed text-ivory/60">{children}</div>
         </div>
       </div>
     </div>

@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { HERO } from '@/data/site'
 import { asset } from '@/lib/assets'
 
-const CHARCOAL = [22, 22, 22]
-const STONE = [167, 163, 155]
-const IVORY = [245, 240, 232]
+const BLACK = [11, 11, 10]
+const WALNUT = [43, 29, 22]
 
 const clamp01 = (v) => Math.min(1, Math.max(0, v))
 const smooth = (a, b, v) => { const t = clamp01((v - a) / (b - a)); return t * t * (3 - 2 * t) }
@@ -72,23 +72,22 @@ export default function Hero() {
       card.current.style.transform = `translate3d(0, ${ty}vh, ${z}px) rotateX(${rx}deg) rotateY(${ry}deg) scale(${scale})`
       card.current.style.borderRadius = `${radius}px`
       card.current.style.clipPath = mobile ? `inset(${insetY}px 0 round ${radius}px)` : 'none'
-      card.current.style.boxShadow = mobile ? 'none' : `0 ${40 * a}px ${120 * a}px -${20 * a}px rgba(22,22,22,${shadow}), 0 ${12 * a}px ${30 * a}px -${10 * a}px rgba(22,22,22,${shadow * 0.7})`
+      card.current.style.boxShadow = mobile ? 'none' : `0 ${40 * a}px ${120 * a}px -${20 * a}px rgba(0,0,0,${shadow + 0.2}), 0 0 0 1px rgba(177,138,74,${0.35 * a})`
       // clip-path clips a box-shadow too, so on phones the shadow lives on a
       // separate layer squeezed to the letterboxed shape.
       const f = mobile ? (window.innerHeight - 2 * insetY) / window.innerHeight : 1
       halo.current.style.opacity = mobile ? String(shadow) : '0'
       halo.current.style.transform = `${card.current.style.transform} scaleY(${f})`
       halo.current.style.borderRadius = `${radius}px / ${radius / f}px`
-      veil.current.style.opacity = String(mix(0.3, 0.08, a))
-      const bg = p < 0.5 ? mixRgb(CHARCOAL, STONE, smooth(0.12, 0.5, p)) : mixRgb(STONE, IVORY, smooth(0.5, 0.85, p))
+      veil.current.style.opacity = String(mix(0.38, 0.12, a))
+      const bg = p < 0.55 ? mixRgb(BLACK, WALNUT, smooth(0.15, 0.55, p)) : mixRgb(WALNUT, BLACK, smooth(0.55, 1, p))
       stage.current.style.backgroundColor = bg
       const copyT = smooth(0, 0.3, p)
       copy.current.style.opacity = String(1 - copyT)
       copy.current.style.transform = `translate3d(0, ${-28 * copyT}px, 0)`
       copy.current.style.pointerEvents = copyT > 0.6 ? 'none' : ''
       cue.current.style.opacity = String(1 - smooth(0, 0.12, p))
-      sec.dataset.tone = p > 0.58 ? 'light' : 'dark'
-      sec.dataset.film = p < 0.45 ? 'true' : 'false'
+            sec.dataset.film = p < 0.45 ? 'true' : 'false'
     }
 
     const tick = () => {
@@ -125,7 +124,7 @@ export default function Hero() {
   const film = (
     <>
     <div ref={halo} className="absolute inset-0 will-change-transform" style={{ boxShadow: '0 40px 100px -10px rgba(22,22,22,0.55)', opacity: 0, background: 'transparent' }} aria-hidden="true" />
-    <div ref={card} className="absolute inset-0 overflow-hidden bg-charcoal will-change-transform" style={{ transformStyle: 'preserve-3d', backfaceVisibility: 'hidden' }}>
+    <div ref={card} className="absolute inset-0 overflow-hidden bg-black will-change-transform" style={{ transformStyle: 'preserve-3d', backfaceVisibility: 'hidden' }}>
       <img src={asset(HERO.fallback)} alt="" aria-hidden="true" className="absolute inset-0 h-full w-full object-cover" />
       {!videoFailed && !reduced && (
         <video
@@ -146,22 +145,26 @@ export default function Hero() {
         </video>
       )}
       {reduced && <img src={asset(HERO.poster)} alt="A handwoven Persian carpet unfurling across a sunlit room" className="absolute inset-0 h-full w-full object-cover" />}
-      <div ref={veil} className="absolute inset-0 bg-charcoal" style={{ opacity: 0.3 }} aria-hidden="true" />
+      <div ref={veil} className="absolute inset-0 bg-black" style={{ opacity: 0.38 }} aria-hidden="true" />
     </div>
     </>
   )
 
   const overlay = (
     <div ref={copy} className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center text-ivory will-change-[opacity,transform]">
-      <h1 className="text-[clamp(44px,9vw,128px)] uppercase leading-none tracking-[0.34em] pl-[0.34em]">MILAEDIA</h1>
-      <p className="mt-5 text-[13px] uppercase tracking-[0.34em] text-ivory/80 md:text-[14px]">Timeless Art for Exceptional Interiors</p>
-      <button type="button" onClick={scrollToCollection} className="btn btn-ivory mt-12">Discover the Collection</button>
+      <p className="eyebrow">Handmade Persian &amp; Turkish Carpets · Berlin</p>
+      <h1 className="mt-6 max-w-5xl text-[clamp(46px,8.4vw,132px)] leading-[0.98]">Where Heritage <em className="font-light italic text-gold">Becomes</em> Art</h1>
+      <p className="mt-7 max-w-xl text-[15px] leading-relaxed text-ivory/75 md:text-[17px]">Exceptional handmade Persian and Turkish carpets, selected for extraordinary interiors.</p>
+      <div className="mt-11 flex flex-col gap-4 sm:flex-row">
+        <button type="button" onClick={scrollToCollection} className="btn btn-solid">Explore the Collection</button>
+        <Link to="/contact?topic=home" className="btn btn-ivory">Book a Private Viewing</Link>
+      </div>
     </div>
   )
 
   if (reduced) {
     return (
-      <section data-tone="dark" data-film="false" className="relative h-[100svh] min-h-[560px] bg-charcoal">
+      <section data-tone="dark" data-film="false" className="relative h-[100svh] min-h-[560px] bg-black">
         {film}
         {overlay}
       </section>
@@ -169,13 +172,13 @@ export default function Hero() {
   }
 
   return (
-    <section ref={section} data-tone="dark" data-film="true" className="relative bg-charcoal" style={{ height: '250vh' }}>
-      <div ref={stage} className="sticky top-0 h-[100svh] min-h-[560px] overflow-hidden bg-charcoal" style={{ perspective: '1400px', perspectiveOrigin: '50% 45%' }}>
+    <section ref={section} data-tone="dark" data-film="true" className="relative bg-black" style={{ height: '230vh' }}>
+      <div ref={stage} className="sticky top-0 h-[100svh] min-h-[560px] overflow-hidden bg-black" style={{ perspective: '1400px', perspectiveOrigin: '50% 45%' }}>
         {film}
         {overlay}
-        <div ref={cue} className="absolute inset-x-0 bottom-8 flex flex-col items-center gap-4 text-ivory/70" aria-hidden="true">
-          <span className="text-[10px] uppercase tracking-[0.34em]">Scroll to explore</span>
-          <span className="block h-12 w-px overflow-hidden bg-ivory/20"><span className="scroll-cue-line block h-full w-full bg-ivory/80" /></span>
+        <div ref={cue} className="absolute inset-x-0 bottom-7 flex flex-col items-center gap-4 text-ivory/60" aria-hidden="true">
+          <span className="text-[9.5px] uppercase tracking-[0.4em]">Scroll</span>
+          <span className="block h-12 w-px overflow-hidden bg-ivory/20"><span className="scroll-cue-line block h-full w-full bg-black/70" /></span>
         </div>
       </div>
     </section>

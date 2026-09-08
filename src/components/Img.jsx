@@ -10,7 +10,7 @@ export default function Img({ image, alt, className = '', imgClassName = '', pri
   const src = typeof image === 'string' ? image : image.src
   const small = typeof image === 'string' ? null : image.small
   return (
-    <div className={`relative overflow-hidden bg-sand/40 ${className}`} style={style}>
+    <div className={`relative overflow-hidden bg-walnut ${className}`} style={style}>
       {!loaded && <div className="absolute inset-0 skeleton" aria-hidden="true" />}
       <img
         src={asset(src)}

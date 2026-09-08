@@ -5,7 +5,7 @@ import { PRODUCTS } from '../src/data/products.js'
 import { ARTICLES } from '../src/data/journal.js'
 
 const ORIGIN = process.env.SITE_ORIGIN || 'https://milaedia.com'
-const STATIC = ['/', '/collection', '/new-arrivals', '/bespoke', '/our-story', '/journal', '/contact', '/shipping-returns', '/privacy-policy', '/terms', '/imprint']
+const STATIC = ['/', '/collection', '/new-arrivals', '/bespoke', '/about', '/craftsmanship', '/journal', '/contact', '/shipping-returns', '/privacy-policy', '/terms', '/imprint']
 const urls = [
   ...STATIC.map((p) => ({ loc: p, priority: p === '/' ? '1.0' : '0.7' })),
   ...PRODUCTS.map((p) => ({ loc: `/collection/${p.slug}`, priority: '0.8' })),

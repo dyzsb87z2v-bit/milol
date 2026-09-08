@@ -13,7 +13,7 @@ export default function Wishlist() {
   return (
     <>
       <PageHero eyebrow="Saved pieces" title="Your Wishlist" intro={items.length ? 'Every rug here is one of one. When you are ready, it is a single step to your bag.' : undefined} />
-      <section data-tone="light" className="bg-ivory text-charcoal pb-24 md:pb-36">
+      <section data-tone="dark" className="bg-black text-ivory pb-24 md:pb-36">
         <div className="container-site">
           {items.length === 0 ? (
             <EmptyState title="Nothing saved yet" text="Tap the heart on any rug to keep it here while you decide." />

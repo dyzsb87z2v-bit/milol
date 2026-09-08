@@ -15,7 +15,7 @@ function FilterGroups({ filters, toggle }) {
     <div className="space-y-9">
       {Object.entries(FILTERS).map(([key, group]) => (
         <fieldset key={key}>
-          <legend className="eyebrow text-charcoal/60">{group.label}</legend>
+          <legend className="eyebrow text-ivory/60">{group.label}</legend>
           <ul className="mt-4 space-y-2.5">
             {group.options.map((o) => {
               const checked = filters[key].includes(o.id)
@@ -23,8 +23,8 @@ function FilterGroups({ filters, toggle }) {
                 <li key={o.id}>
                   <label className="flex cursor-pointer items-center gap-3 text-[14px]">
                     <input type="checkbox" checked={checked} onChange={() => toggle(key, o.id)} className="peer sr-only" />
-                    <span className={`inline-block h-3.5 w-3.5 border transition-colors ${checked ? 'border-charcoal bg-charcoal' : 'border-charcoal/40'} peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-gold peer-focus-visible:outline-offset-2`} aria-hidden="true" />
-                    <span className={checked ? '' : 'text-charcoal/75'}>{o.label}</span>
+                    <span className={`inline-block h-3.5 w-3.5 border transition-colors ${checked ? 'border-ivory bg-charcoal' : 'border-ivory/40'} peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-gold peer-focus-visible:outline-offset-2`} aria-hidden="true" />
+                    <span className={checked ? '' : 'text-ivory/75'}>{o.label}</span>
                   </label>
                 </li>
               )
@@ -69,17 +69,17 @@ export default function Collection({ newArrivals = false }) {
         title={newArrivals ? 'New Arrivals' : 'Curated rugs for interiors with character.'}
         intro={newArrivals ? 'Recently finished pieces and new acquisitions, photographed as they arrive at the atelier.' : 'Every piece is chosen one at a time, for the quality of its weave and the life it will have in a room. Nothing here is a reproduction.'}
       />
-      <section data-tone="light" className="bg-ivory text-charcoal pb-24 md:pb-36">
+      <section data-tone="dark" className="bg-black text-ivory pb-24 md:pb-36">
         <div className="container-site">
           <div className="flex flex-wrap items-center justify-between gap-4 border-y hairline py-4">
             <div className="flex items-center gap-4">
               <button type="button" onClick={() => setDrawer(true)} className="link-line inline-flex items-center gap-2 lg:hidden">
                 <SlidersHorizontal size={14} strokeWidth={1.25} /> Filters {activeCount > 0 && `(${activeCount})`}
               </button>
-              <p className="text-[12px] text-charcoal/55" aria-live="polite">{items.length} {items.length === 1 ? 'piece' : 'pieces'}</p>
+              <p className="text-[12px] text-ivory/55" aria-live="polite">{items.length} {items.length === 1 ? 'piece' : 'pieces'}</p>
             </div>
             <div className="flex items-center gap-3">
-              <label htmlFor="sort" className="eyebrow text-charcoal/60">Sort</label>
+              <label htmlFor="sort" className="eyebrow text-ivory/60">Sort</label>
               <select id="sort" value={sort} onChange={(e) => update({ filters, sort: e.target.value })} className="field w-auto border-0 py-1 text-[13px]">
                 {SORTS.map((s) => <option key={s.id} value={s.id}>{s.label}</option>)}
               </select>
@@ -90,12 +90,12 @@ export default function Collection({ newArrivals = false }) {
             <ul className="mt-5 flex flex-wrap items-center gap-2" aria-label="Active filters">
               {chips.map((c) => (
                 <li key={`${c.key}-${c.id}`}>
-                  <button type="button" onClick={() => toggle(c.key, c.id)} className="inline-flex items-center gap-2 border hairline px-3 py-1.5 text-[12px] hover:border-charcoal transition-colors" aria-label={`Remove filter ${c.label}`}>
+                  <button type="button" onClick={() => toggle(c.key, c.id)} className="inline-flex items-center gap-2 border hairline px-3 py-1.5 text-[12px] hover:border-ivory transition-colors" aria-label={`Remove filter ${c.label}`}>
                     {c.label} <X size={12} strokeWidth={1.5} />
                   </button>
                 </li>
               ))}
-              <li><button type="button" onClick={clear} className="link-line ml-2 text-charcoal/60">Clear all</button></li>
+              <li><button type="button" onClick={clear} className="link-line ml-2 text-ivory/60">Clear all</button></li>
             </ul>
           )}
 
@@ -129,7 +129,7 @@ export default function Collection({ newArrivals = false }) {
         </div>
         <div className="flex-1 overflow-auto px-6 py-8"><FilterGroups filters={filters} toggle={toggle} /></div>
         <div className="flex gap-3 border-t hairline px-6 py-5">
-          <button type="button" onClick={clear} className="btn btn-charcoal flex-1">Clear</button>
+          <button type="button" onClick={clear} className="btn btn-ivory flex-1">Clear</button>
           <button type="button" onClick={() => setDrawer(false)} className="btn btn-solid flex-1">Show {items.length}</button>
         </div>
       </Modal>

@@ -4,10 +4,9 @@ import { load, save } from '@/lib/storage'
 
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
-export default function NewsletterForm({ tone = 'dark', compact = false, buttonLabel = 'Join the List' }) {
+export default function NewsletterForm({ tone = 'light', compact = false, buttonLabel = 'Join the List', gold = false }) {
   const [email, setEmail] = useState('')
   const [state, setState] = useState('idle') // idle | error | done
-  const dark = tone === 'dark'
 
   const submit = (e) => {
     e.preventDefault()
@@ -18,7 +17,7 @@ export default function NewsletterForm({ tone = 'dark', compact = false, buttonL
 
   if (state === 'done') {
     return (
-      <p className={`serif text-2xl ${dark ? 'text-charcoal' : 'text-ivory'}`} role="status">
+      <p className="serif text-2xl" role="status">
         Thank you. Your first note will arrive shortly.
       </p>
     )
@@ -37,16 +36,16 @@ export default function NewsletterForm({ tone = 'dark', compact = false, buttonL
           onChange={(e) => { setEmail(e.target.value); setState('idle') }}
           aria-invalid={state === 'error'}
           aria-describedby={state === 'error' ? `nl-err-${tone}` : undefined}
-          className={`field ${dark ? '' : 'field-dark'}`}
+          className="field"
         />
         {state === 'error' && <p id={`nl-err-${tone}`} className="error-text">Please enter a valid email address.</p>}
       </div>
       {compact ? (
-        <button type="submit" className={`icon-btn ${dark ? '' : 'text-ivory'}`} aria-label={buttonLabel}>
+        <button type="submit" className="icon-btn text-gold" aria-label={buttonLabel}>
           <ArrowRight size={18} strokeWidth={1.25} />
         </button>
       ) : (
-        <button type="submit" className={`btn ${dark ? 'btn-charcoal' : 'btn-ivory'}`}>{buttonLabel}</button>
+        <button type="submit" className={`btn ${gold ? 'btn-gold' : 'btn-ivory'}`}>{buttonLabel}</button>
       )}
     </form>
   )

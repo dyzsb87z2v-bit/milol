@@ -57,10 +57,10 @@ export default function Info({ doc }) {
   return (
     <>
       <PageHero eyebrow="Customer Care" title={d.title} intro={d.intro} />
-      <section data-tone="light" className="bg-ivory text-charcoal pb-24 md:pb-36">
+      <section data-tone="dark" className="bg-black text-ivory pb-24 md:pb-36">
         <div className="container-site prose-luxe max-w-3xl">
           {d.sections.map(([h, p]) => (<div key={h}><h2>{h}</h2><p className="whitespace-pre-line">{p}</p></div>))}
-          <p className="mt-16 text-[13px] text-charcoal/55">Questions? <Link to="/contact" className="underline underline-offset-4">Write to the gallery</Link>. We reply personally within two working days.</p>
+          <p className="mt-16 text-[13px] text-ivory/55">Questions? <Link to="/contact" className="underline underline-offset-4">Write to the gallery</Link>. We reply personally within two working days.</p>
         </div>
       </section>
     </>

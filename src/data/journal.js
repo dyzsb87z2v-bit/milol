@@ -7,8 +7,30 @@ export const CATEGORIES = ['All', 'Craft', 'Heritage', 'Collecting', 'Interiors'
 
 export const ARTICLES = [
   {
-    slug: 'how-to-choose-a-rug-for-a-contemporary-interior',
-    title: 'How to Choose a Rug for a Contemporary Interior',
+    slug: 'a-guide-to-handmade-turkish-rugs',
+    title: 'A Guide to Handmade Turkish Rugs',
+    category: 'Heritage',
+    date: '2026-07-21',
+    readTime: '7 min read',
+    image: '/img/anatolian-3.webp',
+    imageSmall: '/img/anatolian-3-sm.webp',
+    excerpt: 'Oushak, Konya, Hereke and the village looms of the plateau: what sets Anatolian weaving apart, and how to read a Turkish rug in the hand.',
+    body: [
+      'Turkish rugs are the older sibling in the family. The Seljuk carpets of Konya, woven in the thirteenth century, are the earliest surviving knotted-pile carpets of any size, and the symmetrical knot that Anatolian weavers still use is named for the town of Ghiordes. Where Persian workshops pursued the curve, Anatolia perfected the angle.',
+      '## The knot',
+      'Turn a Turkish rug over and you will find the symmetric, or Ghiordes, knot: each strand of pile wrapped around two warps and pulled up between them. It is a sturdier knot than the asymmetric Persian type, better suited to the hand-spun wool of the plateau, and it gives Anatolian pile its characteristic depth and bounce underfoot.',
+      '## Four names to know',
+      'Oushak, in the west, is famous for large-scale floral and medallion designs in soft apricot, oat and grey-blue, woven with a lofty pile that has made it the decorator\'s favourite for two centuries. Konya, in central Anatolia, keeps the oldest tradition: bold, spare geometry, natural dyes, and a wool spun by the weavers themselves. Hereke, near Istanbul, is the exception that proves the rule, a court workshop founded in 1843 that weaves silk at densities rivalling Qom. And the village looms of Bergama, Milas and Yahyalı produce prayer rugs and small formats that carry the tribal roots of the tradition.',
+      '## Colour from the land',
+      'Madder root for red, indigo for blue, weld and pomegranate for yellow, walnut husk for brown. The best contemporary Anatolian weaving has returned to these plant dyes, and their gentle variation, the abrash that shows where one dye pot ended and the next began, is the surest sign of a rug made slowly.',
+      '## What to look for',
+      'Wool that feels springy and slightly oily in the hand, not dry. A back on which the knots read evenly but not mechanically. Colours that sit in harmony rather than contrast. And, in an older piece, a pile that has worn evenly across the field rather than in patches. A good Turkish rug is not fine in the Persian sense; it is honest, robust and warm, and it will still be so in a hundred years.',
+      '> A Turkish rug does not whisper. It states, clearly and once, and then lets the room speak.',
+    ],
+  },
+  {
+    slug: 'how-to-choose-a-carpet-for-a-modern-interior',
+    title: 'How to Choose a Carpet for a Modern Interior',
     category: 'Interiors',
     date: '2026-06-12',
     readTime: '6 min read',
