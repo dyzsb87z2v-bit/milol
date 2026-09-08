@@ -27,12 +27,14 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run lint
-      # The site lives at the custom domain milaedia.com (public/CNAME), so it
-      # is served from the root. Set BASE_PATH to /<repo>/ instead if you ever
-      # serve it from <user>.github.io/<repo>/.
+      # configure-pages reports where the site will be served: "/milol" while
+      # it lives at <user>.github.io/milol/, and "" once the custom domain
+      # milaedia.com is set under Settings -> Pages. The build follows it.
+      - id: pages
+        uses: actions/configure-pages@v5
       - run: npm run build
         env:
-          BASE_PATH: /
+          BASE_PATH: ${{ steps.pages.outputs.base_path }}/
       # GitHub Pages has no rewrite rules; serving the app as 404.html lets
       # deep links such as /collection/isfahan-silk-garden load the router.
       - run: cp dist/index.html dist/404.html
